@@ -31,7 +31,7 @@ a{color:inherit}
 /* top bar */
 .bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:10px 20px;
   background:rgba(246,242,246,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.bar .logo img{height:44px;display:block}
+.bar .logo img{height:68px;display:block}
 .bar .where{flex:1;font-family:Rubik;font-weight:700;color:var(--accent);font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ibtn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:8px 14px;font:500 15px Heebo;cursor:pointer}
 .ibtn:hover{background:var(--accent-soft)}
@@ -39,9 +39,7 @@ a{color:inherit}
 /* home */
 .home{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
 .hero{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin:10px 0 30px}
-.hero img{width:260px;max-width:70vw}
-.hero .kicker{color:var(--rose-deep);font:700 20px Rubik}
-.hero h1{font-size:clamp(34px,5vw,58px);margin:4px 0}
+.hero h1{font-size:clamp(34px,5vw,58px);margin:4px 0;color:var(--rose-deep)}
 .hero p{color:var(--muted);margin:0;font-size:18px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .scard{display:block;text-decoration:none;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:20px 22px;border-inline-start:8px solid var(--accent-mid);transition:transform .15s}
@@ -49,7 +47,6 @@ a{color:inherit}
 .scard .n{font:800 30px Rubik;color:var(--accent)}
 .scard h2{font-size:21px;margin:2px 0 4px}
 .scard p{margin:0;color:var(--muted);font-size:15px}
-.scard small{display:block;margin-top:10px;color:var(--accent);font-weight:700}
 .extra-title{margin:34px 0 12px;color:var(--muted);font:700 18px Rubik}
 
 /* screen view */
@@ -181,7 +178,7 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
   .ladder li{grid-template-columns:70px 1fr;margin-inline-end:0!important}
   .ladder span{grid-column:1/-1}
   .steps span{padding-inline-start:0;margin-top:0}
-  .bar{padding:8px 16px}.bar .logo img{height:36px}.bar .where{font-size:15px}
+  .bar{padding:8px 16px}.bar .logo img{height:52px}.bar .where{font-size:15px}
   .view,.home{padding-inline:16px}
   .img{min-height:200px}
   .bubble.alt{margin-inline-end:0}
@@ -215,7 +212,7 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
   function ctaHTML(){
     return `<div class="cta">${LECTURE.cta.map(c => `
       <div class="card"><h3>${c.title}</h3><p>${c.text}</p>
-      <a class="btn" href="${wa(c.wa)}" target="_blank" rel="noopener">לשיחה בוואטסאפ</a></div>`).join('')}
+      <a class="btn" href="${wa(c.wa)}" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a></div>`).join('')}
     </div>
     <p class="contact"><bdi>לירז גל, להבין AI</bdi><span class="sep">|</span><a href="tel:+${LECTURE.phone}"><bdi dir="ltr">${LECTURE.phoneDisplay}</bdi></a><span class="sep">|</span><a href="https://${LECTURE.site}" target="_blank" rel="noopener"><bdi dir="ltr">${LECTURE.site}</bdi></a></p>`;
   }
@@ -224,11 +221,9 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
     document.body.className = 'c-rose';
     where.textContent = '';
     const card = (s, i) => `<a class="scard c-${s.color}" href="#${s.id}/1">
-        ${s.extra ? '' : `<div class="n">${i + 1}</div>`}<h2>${s.title}</h2><p>${s.desc}</p>
-        <small>${s.screens.length > 1 ? s.screens.length + ' מסכים' : 'מסך אחד'}</small></a>`;
+        ${s.extra ? '' : `<div class="n">${i + 1}</div>`}<h2>${s.title}</h2><p>${s.desc}</p></a>`;
     app.innerHTML = `<section class="home">
-      <div class="hero"><img src="assets/logo.png" alt="להבין AI">
-        <div><div class="kicker">${LECTURE.kicker}</div><h1>${LECTURE.title}</h1><p>${LECTURE.audience}</p></div></div>
+      <div class="hero"><div><h1>${LECTURE.kicker}</h1><p>${LECTURE.audience}</p></div></div>
       <div class="cards">${main.map(card).join('')}</div>
       ${extra.length ? `<div class="extra-title">ועוד</div><div class="cards">${extra.map(card).join('')}</div>` : ''}
       <div class="homecta"><h2>ומכאן?</h2>${ctaHTML()}</div>
