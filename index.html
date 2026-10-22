@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>לא צריך לפחד, צריך להבין | להבין AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F2F6; --card:#FFFFFF; --ink:#2E4541; --body:#3F4D49; --muted:#6B5A70;
+  --blush:#D7B5BB; --blush-soft:#F6EAEC; --rose:#C98A95; --rose-deep:#8E4E5B;
+  --mauve:#C4A9C2; --lav:#A99CAD; --lav-soft:#EBE5ED; --lav-deep:#6B5A70;
+  --turq:#6FA39B; --turq-deep:#2C5C54; --turq-soft:#DDEAE7; --line:#E4DAE6;
+  --accent:var(--rose-deep); --accent-soft:var(--blush-soft); --accent-mid:var(--rose);
+  --r:18px; --shadow:0 4px 18px rgba(107,90,112,.12);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--body);font-family:Heebo,system-ui,sans-serif;line-height:1.5;
+  background-image:radial-gradient(circle at 92% -10%,var(--lav-soft) 0 22%,transparent 22.2%),radial-gradient(circle at -6% 108%,var(--blush-soft) 0 26%,transparent 26.2%);
+  background-attachment:fixed;min-height:100vh}
+h1,h2,h3{font-family:Rubik,Heebo,sans-serif;color:var(--ink);margin:0 0 .4em;line-height:1.2}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--turq-deep);outline-offset:3px;border-radius:6px}
+.c-rose{--accent:var(--rose-deep);--accent-soft:var(--blush-soft);--accent-mid:var(--rose)}
+.c-lav{--accent:var(--lav-deep);--accent-soft:var(--lav-soft);--accent-mid:var(--lav)}
+.c-turq{--accent:var(--turq-deep);--accent-soft:var(--turq-soft);--accent-mid:var(--turq)}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:10px 20px;
+  background:rgba(246,242,246,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .logo img{height:44px;display:block}
+.bar .where{flex:1;font-family:Rubik;font-weight:700;color:var(--accent);font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ibtn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:8px 14px;font:500 15px Heebo;cursor:pointer}
+.ibtn:hover{background:var(--accent-soft)}
+
+/* home */
+.home{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+.hero{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin:10px 0 30px}
+.hero img{width:260px;max-width:70vw}
+.hero .kicker{color:var(--rose-deep);font:700 20px Rubik}
+.hero h1{font-size:clamp(34px,5vw,58px);margin:4px 0}
+.hero p{color:var(--muted);margin:0;font-size:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.scard{display:block;text-decoration:none;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:20px 22px;border-inline-start:8px solid var(--accent-mid);transition:transform .15s}
+.scard:hover{transform:translateY(-3px)}
+.scard .n{font:800 30px Rubik;color:var(--accent)}
+.scard h2{font-size:21px;margin:2px 0 4px}
+.scard p{margin:0;color:var(--muted);font-size:15px}
+.scard small{display:block;margin-top:10px;color:var(--accent);font-weight:700}
+.extra-title{margin:34px 0 12px;color:var(--muted);font:700 18px Rubik}
+
+/* screen view */
+.view{max-width:1220px;margin:0 auto;padding:22px 24px 120px;min-height:calc(100vh - 66px);display:flex;flex-direction:column}
+.view .head{margin-bottom:22px}
+.view h1{font-size:clamp(28px,3.6vw,46px)}
+.view h1::after{content:"";display:block;width:90px;height:6px;border-radius:3px;background:var(--accent-mid);margin-top:12px}
+.view .sub{font-size:clamp(17px,1.8vw,22px);color:var(--muted);margin:0}
+.view .body{flex:1;display:flex;flex-direction:column;justify-content:center;font-size:clamp(16px,1.6vw,21px)}
+.nav{position:fixed;bottom:0;inset-inline:0;display:flex;justify-content:center;align-items:center;gap:14px;padding:12px;
+  background:rgba(246,242,246,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+.nav .dots-nav{display:flex;gap:7px}
+.nav .dots-nav button{width:11px;height:11px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer}
+.nav .dots-nav button.on{background:var(--accent);width:26px;border-radius:6px}
+.nav .ibtn[disabled]{opacity:.35;cursor:default}
+
+/* building blocks */
+.grid{display:grid;gap:20px}
+.g-1-1{grid-template-columns:1fr 1fr}.g-2-1{grid-template-columns:2fr 1fr}.g-3-2{grid-template-columns:3fr 2fr}
+.g-2{grid-template-columns:1fr 1fr}.g-3{grid-template-columns:repeat(3,1fr)}.g-4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:22px 24px;border:1px solid var(--line)}
+.card h3{font-size:1.25em}
+.card p{margin:.4em 0}
+.stack{display:flex;flex-direction:column;gap:14px;justify-content:center}
+.center{text-align:center}
+.mt{margin-top:24px}
+.lg{font-size:1.2em}.xl{font-size:clamp(26px,3vw,40px);font-family:Rubik;font-weight:700;margin:.3em 0}
+.huge{font-size:clamp(40px,6vw,76px);font-family:Rubik;font-weight:800;line-height:1.1;margin:.1em 0}
+.accent{color:var(--accent)}.muted{color:var(--muted)}.strong{font-weight:700;color:var(--ink)}
+.mono{font-variant-numeric:tabular-nums}
+.note{background:var(--accent-soft);border:1px solid var(--accent-mid);border-radius:14px;padding:14px 18px;font:700 1.05em Rubik;color:var(--ink)}
+ul.dots{padding-inline-start:1.2em;margin:0 0 1em}ul.dots li{margin-bottom:.7em}
+ul.dots li::marker{color:var(--accent-mid)}
+.img{border-radius:var(--r);min-height:300px;background:var(--accent-soft) center/cover no-repeat;border:2px dashed var(--accent-mid);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--accent);font-style:italic}
+.img.has{border:0;color:transparent;box-shadow:var(--shadow)}
+.img.has[data-fit=contain]{background-size:contain;background-color:#E9DDEC}
+.photo{margin:0;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:12px}
+.photo img{width:100%;display:block;border-radius:10px}
+.photo figcaption{text-align:center;color:var(--muted);font-style:italic;margin-top:8px}
+.video{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:320px;border-radius:var(--r);
+  background:var(--ink);color:#fff;text-decoration:none;box-shadow:var(--shadow)}
+.video .play{width:84px;height:84px;border-radius:50%;background:var(--blush);position:relative}
+.video .play::after{content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent var(--ink)}
+.video strong{font:700 1.15em Rubik;text-decoration:underline}
+.video small{color:var(--blush)}
+.years{list-style:none;padding:0;margin:0 0 18px}
+.years li{display:flex;gap:16px;margin-bottom:12px}
+.years b{min-width:70px;color:var(--accent);font:800 1.1em Rubik}
+.bubble{background:var(--card);border-radius:22px;padding:18px 22px;box-shadow:var(--shadow);font-size:1.1em}
+.bubble.alt{background:var(--blush);color:var(--ink);font-weight:700;margin-inline-end:40px}
+.timeline{list-style:none;padding:40px 0 0;margin:0;display:grid;grid-template-columns:repeat(6,1fr);position:relative}
+.timeline::before{content:"";position:absolute;top:96px;inset-inline:4%;height:4px;background:var(--lav);border-radius:2px}
+.timeline li{text-align:center;padding:0 6px}
+.timeline b{display:block;font:800 1.5em Rubik;color:var(--lav-deep);margin-bottom:22px}
+.timeline b::after{content:"";display:block;width:22px;height:22px;border-radius:50%;background:var(--lav);border:4px solid #fff;margin:14px auto 0;box-shadow:0 0 0 1px var(--line)}
+.timeline li.hot b{color:var(--rose-deep)}.timeline li.hot b::after{background:var(--rose)}
+.timeline li.now b{color:var(--turq-deep)}.timeline li.now b::after{background:var(--turq)}
+.fact{display:flex;align-items:center;gap:18px;background:var(--card);border-radius:14px;padding:12px 20px;box-shadow:var(--shadow)}
+.fact b{font:800 1.6em Rubik;color:var(--rose-deep);min-width:150px}
+.letter{width:86px;height:86px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;background:var(--turq-soft);border:3px solid var(--turq);font:800 44px Rubik;color:var(--turq-deep)}
+.num{font:800 64px Rubik;line-height:1}.num.turq{color:var(--turq-deep)}.num.lav{color:var(--lav-deep)}.num.rose{color:var(--rose-deep)}
+.top-rose{border-top:8px solid var(--rose)}.top-lav{border-top:8px solid var(--lav)}.top-turq{border-top:8px solid var(--turq)}.top-mauve{border-top:8px solid var(--mauve)}
+.side-turq{border-inline-start:8px solid var(--turq)}.side-rose{border-inline-start:8px solid var(--rose)}.side-lav{border-inline-start:8px solid var(--lav)}.side-mauve{border-inline-start:8px solid var(--mauve)}
+.head-lav h3,.head-rose h3,.head-turq h3{margin:-22px -24px 16px;padding:14px;border-radius:var(--r) var(--r) 0 0;text-align:center;color:#fff}
+.head-lav h3{background:var(--lav-deep)}.head-rose h3{background:var(--rose-deep)}.head-turq h3{background:var(--turq-deep)}
+.soft-lav{background:var(--lav-soft)}
+.tablewrap{overflow-x:auto;border-radius:var(--r);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;background:var(--card);min-width:620px}
+th,td{padding:16px 18px;text-align:start;border-bottom:1px solid var(--line)}
+thead th{background:var(--lav-deep);color:#fff;font-family:Rubik}
+thead th.hl{background:var(--turq-deep)}
+tbody th{color:var(--ink);background:#FBF8FB}
+td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
+.ladder{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.ladder li{display:grid;grid-template-columns:90px 110px 1fr auto;align-items:center;gap:14px;padding:12px 18px;border-radius:14px;background:var(--turq-soft);color:var(--ink)}
+.ladder li:nth-child(1){margin-inline-end:0}.ladder li:nth-child(2){margin-inline-end:4%;background:#C6DEDA}
+.ladder li:nth-child(3){margin-inline-end:8%;background:#A9CCC6}.ladder li:nth-child(4){margin-inline-end:12%;background:#8CB9B2}
+.ladder li:nth-child(5){margin-inline-end:16%;background:var(--turq-deep);color:#fff}.ladder li:nth-child(6){margin-inline-end:20%;background:var(--ink);color:#fff}
+.ladder b{font-family:Rubik}.ladder strong{font-family:Rubik}
+.ladder em{font-style:normal;background:var(--blush);color:var(--ink);border-radius:8px;padding:2px 10px;font-weight:700;font-size:.85em}
+.steps{list-style:none;padding:0;margin:0;counter-reset:s;display:flex;flex-direction:column;gap:14px}
+.steps li{counter-increment:s;display:flex;align-items:center;gap:18px;background:var(--card);border-radius:14px;padding:16px 20px;box-shadow:var(--shadow);flex-wrap:wrap}
+.steps li::before{content:counter(s);width:50px;height:50px;border-radius:50%;background:var(--lav-deep);color:#fff;display:flex;align-items:center;justify-content:center;font:800 1.3em Rubik;flex:none}
+.steps strong{font-family:Rubik;color:var(--ink);font-size:1.1em}
+.steps span{color:var(--muted);flex-basis:100%;padding-inline-start:68px;margin-top:-8px}
+.steps.small strong{font-size:1em}
+.agent{display:flex;align-items:center;gap:18px;background:var(--card);border-radius:14px;padding:14px 20px;box-shadow:var(--shadow)}
+.agent b{font:800 1.3em Rubik;color:var(--rose-deep);min-width:80px}
+.terms{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.terms span{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:16px 24px;font:700 1.15em Rubik;color:var(--ink)}
+.terms span:nth-child(odd){background:var(--blush-soft)}.terms span:nth-child(even){background:var(--lav-soft)}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;border:0;border-radius:14px;padding:13px 26px;font:700 18px Rubik;cursor:pointer;margin:8px}
+.btn:hover{background:var(--turq-deep)}
+.btn.big{font-size:26px;padding:20px 44px}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+/* stopwatch */
+.sw{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:22px;text-align:center;border:1px solid var(--line)}
+.sw .label{color:var(--muted);font-size:1.05em}
+.sw .time{font:800 clamp(56px,8vw,104px) Rubik;color:var(--accent);direction:ltr;font-variant-numeric:tabular-nums;line-height:1.1;margin:8px 0}
+/* words */
+.words{display:flex;flex-wrap:wrap;gap:10px}
+.words span,.wg button{background:var(--card);border:1.5px solid var(--lav);border-radius:12px;padding:10px 16px;font:700 1.1em Rubik;color:var(--ink)}
+.wg .pool,.wg .built{display:flex;flex-wrap:wrap;gap:10px;min-height:64px;padding:14px;border-radius:var(--r)}
+.wg .built{background:var(--lav-soft);margin-bottom:16px}
+.wg button{cursor:pointer}.wg button:hover{background:var(--blush-soft)}
+.wg .built span{background:var(--turq-soft);border:1.5px solid var(--turq);border-radius:12px;padding:10px 16px;font:700 1.1em Rubik;color:var(--ink)}
+.wg .status{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.wg .clock{font:800 30px Rubik;color:var(--lav-deep);direction:ltr;font-variant-numeric:tabular-nums}
+.shake{animation:sh .35s}@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+/* cta */
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cta .card{display:flex;flex-direction:column;align-items:flex-start;gap:6px;border-top:8px solid var(--rose)}
+.cta .card:nth-child(2){border-top-color:var(--turq)}
+.cta .btn{margin:8px 0 0}
+.contact{margin-top:14px;color:var(--muted);text-align:center}
+.contact a{color:var(--ink);font-weight:700}
+.contact .sep{margin:0 10px;color:var(--line)}
+.closing-qr{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:22px}
+.closing-qr [data-qr]{background:#fff;padding:10px;border-radius:12px;box-shadow:var(--shadow)}
+.closing-qr p{max-width:220px}
+.homecta{margin-top:36px}
+@media (max-width:820px){
+  .g-1-1,.g-2-1,.g-3-2,.g-2,.g-3,.g-4,.cta{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr;padding:0}
+  .timeline::before{display:none}
+  .timeline li{display:flex;align-items:center;gap:14px;text-align:start;margin-bottom:12px}
+  .timeline b{margin:0;min-width:70px}.timeline b::after{display:none}
+  .ladder li{grid-template-columns:70px 1fr;margin-inline-end:0!important}
+  .ladder span{grid-column:1/-1}
+  .steps span{padding-inline-start:0;margin-top:0}
+  .bar{padding:8px 16px}.bar .logo img{height:36px}.bar .where{font-size:15px}
+  .view,.home{padding-inline:16px}
+  .img{min-height:200px}
+  .bubble.alt{margin-inline-end:0}
+}
+@media print{.bar,.nav{display:none}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="logo" href="#" aria-label="לעמוד הבית"><img src="assets/logo.png" alt="להבין AI"></a>
+  <div class="where" id="where"></div>
+  <button class="ibtn" id="homeBtn" type="button">בית</button>
+  <button class="ibtn" id="fsBtn" type="button" title="מסך מלא (F)">מסך מלא</button>
+</header>
+<main id="app"></main>
+
+<script src="content.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function(){
+  const app = document.getElementById('app');
+  const where = document.getElementById('where');
+  const main = SECTIONS.filter(s => !s.extra);
+  const extra = SECTIONS.filter(s => s.extra);
+  const SW = {}; // stopwatch results, kept between screens
+
+  const fill = html => html.replace(/\{\{(\w+)\}\}/g, (_, k) => LECTURE.links[k] || '#');
+  const wa = msg => `https://wa.me/${LECTURE.phone}?text=${encodeURIComponent(msg)}`;
+  const fmt = ms => { const s = Math.floor(ms / 1000); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); };
+
+  function ctaHTML(){
+    return `<div class="cta">${LECTURE.cta.map(c => `
+      <div class="card"><h3>${c.title}</h3><p>${c.text}</p>
+      <a class="btn" href="${wa(c.wa)}" target="_blank" rel="noopener">לשיחה בוואטסאפ</a></div>`).join('')}
+    </div>
+    <p class="contact"><bdi>לירז גל, להבין AI</bdi><span class="sep">|</span><a href="tel:+${LECTURE.phone}"><bdi dir="ltr">${LECTURE.phoneDisplay}</bdi></a><span class="sep">|</span><a href="https://${LECTURE.site}" target="_blank" rel="noopener"><bdi dir="ltr">${LECTURE.site}</bdi></a></p>`;
+  }
+
+  function renderHome(){
+    document.body.className = 'c-rose';
+    where.textContent = '';
+    const card = (s, i) => `<a class="scard c-${s.color}" href="#${s.id}/1">
+        ${s.extra ? '' : `<div class="n">${i + 1}</div>`}<h2>${s.title}</h2><p>${s.desc}</p>
+        <small>${s.screens.length > 1 ? s.screens.length + ' מסכים' : 'מסך אחד'}</small></a>`;
+    app.innerHTML = `<section class="home">
+      <div class="hero"><img src="assets/logo.png" alt="להבין AI">
+        <div><div class="kicker">${LECTURE.kicker}</div><h1>${LECTURE.title}</h1><p>${LECTURE.audience}</p></div></div>
+      <div class="cards">${main.map(card).join('')}</div>
+      ${extra.length ? `<div class="extra-title">ועוד</div><div class="cards">${extra.map(card).join('')}</div>` : ''}
+      <div class="homecta"><h2>ומכאן?</h2>${ctaHTML()}</div>
+    </section>`;
+    window.scrollTo(0, 0);
+  }
+
+  function renderScreen(sec, idx){
+    const sc = sec.screens[idx];
+    document.body.className = 'c-' + sec.color;
+    const num = main.indexOf(sec);
+    where.textContent = (num >= 0 ? (num + 1) + '. ' : '') + sec.title;
+    const head = sc.title ? `<div class="head"><h1>${sc.title}</h1>${sc.sub ? `<p class="sub">${sc.sub}</p>` : ''}</div>` : '';
+    app.innerHTML = `<section class="view">${head}<div class="body">${fill(sc.html)}</div></section>
+      <nav class="nav" aria-label="ניווט בין מסכים">
+        <button class="ibtn" id="prev" type="button">הקודם</button>
+        <div class="dots-nav">${sec.screens.map((_, i) => `<button type="button" aria-label="מסך ${i + 1}" class="${i === idx ? 'on' : ''}" data-go="${i}"></button>`).join('')}</div>
+        <button class="ibtn" id="next" type="button">${idx === sec.screens.length - 1 ? nextSectionLabel(sec) : 'הבא'}</button>
+      </nav>`;
+    document.getElementById('prev').disabled = idx === 0 && SECTIONS.indexOf(sec) === 0;
+    document.getElementById('prev').onclick = () => step(-1);
+    document.getElementById('next').onclick = () => step(1);
+    app.querySelectorAll('[data-go]').forEach(b => b.onclick = () => go(sec.id, +b.dataset.go));
+    enhance();
+    window.scrollTo(0, 0);
+  }
+  function nextSectionLabel(sec){
+    const i = SECTIONS.indexOf(sec);
+    return i < SECTIONS.length - 1 ? 'לחלק הבא' : 'לבית';
+  }
+
+  function enhance(){
+    app.querySelectorAll('.img[data-img]').forEach(el => {
+      const src = 'assets/' + el.dataset.img, im = new Image();
+      im.onload = () => { el.style.backgroundImage = `url("${src}")`; el.classList.add('has'); el.setAttribute('role', 'img'); el.setAttribute('aria-label', el.textContent.trim()); };
+      im.src = src;
+    });
+    app.querySelectorAll('[data-sentence]').forEach(el => el.innerHTML = SENTENCE.split(' ').map(w => `<span>${w}</span>`).join(''));
+    app.querySelectorAll('[data-result]').forEach(el => { const v = SW[el.dataset.result]; if (v != null) el.textContent = fmt(v); });
+    app.querySelectorAll('.sw[data-sw]').forEach(stopwatch);
+    app.querySelectorAll('[data-wordgame]').forEach(wordGame);
+    app.querySelectorAll('[data-cta]').forEach(el => el.innerHTML = ctaHTML());
+    app.querySelectorAll('[data-qr]').forEach(el => {
+      const url = location.href.split('#')[0];
+      if (window.QRCode) new QRCode(el, { text: url, width: 150, height: 150, colorDark: '#2E4541', colorLight: '#FFFFFF' });
+      else el.innerHTML = `<p>${url}</p>`;
+    });
+  }
+
+  function stopwatch(el){
+    const key = el.dataset.sw, label = key === 'r1' ? 'סבב 1' : 'סבב 2';
+    let start = 0, acc = SW[key] || 0, timer = null;
+    el.innerHTML = `<div class="label">${label}: הזמן שלנו</div><div class="time">${fmt(acc)}</div>
+      <button class="btn" type="button" data-a="go">התחלה</button><button class="btn ghost" type="button" data-a="reset">איפוס</button>`;
+    const t = el.querySelector('.time'), b = el.querySelector('[data-a=go]');
+    const tick = () => t.textContent = fmt(acc + Date.now() - start);
+    b.onclick = () => {
+      if (timer) { clearInterval(timer); timer = null; acc += Date.now() - start; SW[key] = acc; t.textContent = fmt(acc); b.textContent = 'המשך'; }
+      else { start = Date.now(); timer = setInterval(tick, 200); b.textContent = 'עצירה'; }
+    };
+    el.querySelector('[data-a=reset]').onclick = () => { clearInterval(timer); timer = null; acc = 0; delete SW[key]; t.textContent = '00:00'; b.textContent = 'התחלה'; };
+  }
+
+  function wordGame(el){
+    const words = SENTENCE.split(' ');
+    let order, pos, start, timer;
+    function reset(){
+      order = words.map((w, i) => ({ w, i })).sort(() => Math.random() - .5);
+      pos = 0; start = 0; clearInterval(timer);
+      el.innerHTML = `<div class="wg"><div class="status"><span class="muted">מילה <b class="mono">1</b> מתוך ${words.length}</span>
+        <span class="clock">00:00</span><button class="btn ghost" type="button" data-r>לערבב מחדש</button></div>
+        <div class="built" aria-live="polite"></div><div class="pool">${order.map(o => `<button type="button" data-i="${o.i}">${o.w}</button>`).join('')}</div></div>`;
+      el.querySelector('[data-r]').onclick = reset;
+      el.querySelectorAll('.pool button').forEach(btn => btn.onclick = () => pick(btn));
+    }
+    function pick(btn){
+      if (!start){ start = Date.now(); timer = setInterval(() => el.querySelector('.clock').textContent = fmt(Date.now() - start), 200); }
+      if (+btn.dataset.i === pos){
+        el.querySelector('.built').insertAdjacentHTML('beforeend', `<span>${btn.textContent}</span>`);
+        btn.remove(); pos++;
+        el.querySelector('.status b').textContent = Math.min(pos + 1, words.length);
+        if (pos === words.length){
+          clearInterval(timer);
+          el.querySelector('.pool').innerHTML = `<p class="xl accent">כל הכבוד! ${fmt(Date.now() - start)}</p><p class="muted">ועכשיו לנסות שוב: בפעם השנייה זה כבר הרבה יותר מהר. בדיוק כמו AI שכבר ראה דוגמאות.</p>`;
+        }
+      } else { btn.classList.remove('shake'); void btn.offsetWidth; btn.classList.add('shake'); }
+    }
+    reset();
+  }
+
+  /* routing: #section/screen */
+  function go(id, idx){ location.hash = `${id}/${idx + 1}`; }
+  function current(){
+    const m = location.hash.slice(1).split('/');
+    const sec = SECTIONS.find(s => s.id === m[0]);
+    if (!sec) return null;
+    const idx = Math.min(Math.max((+m[1] || 1) - 1, 0), sec.screens.length - 1);
+    return { sec, idx };
+  }
+  function step(d){
+    const c = current(); if (!c) { if (d > 0) go(SECTIONS[0].id, 0); return; }
+    const si = SECTIONS.indexOf(c.sec), ni = c.idx + d;
+    if (ni >= 0 && ni < c.sec.screens.length) return go(c.sec.id, ni);
+    if (d > 0) return si < SECTIONS.length - 1 ? go(SECTIONS[si + 1].id, 0) : (location.hash = '');
+    if (si > 0) { const p = SECTIONS[si - 1]; go(p.id, p.screens.length - 1); }
+  }
+  function route(){ const c = current(); c ? renderScreen(c.sec, c.idx) : renderHome(); }
+  window.addEventListener('hashchange', route);
+  document.getElementById('homeBtn').onclick = () => { location.hash = ''; };
+  const fsBtn = document.getElementById('fsBtn');
+  const toggleFs = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+  fsBtn.onclick = toggleFs;
+  document.addEventListener('keydown', e => {
+    if (e.target.closest('input,textarea')) return;
+    if (['ArrowLeft', 'PageDown', ' '].includes(e.key)) { if (e.key === ' ' && e.target.closest('button,a')) return; e.preventDefault(); step(1); }
+    else if (['ArrowRight', 'PageUp'].includes(e.key)) { e.preventDefault(); step(-1); }
+    else if (e.key === 'Home' || e.key.toLowerCase() === 'h' || e.key === 'ח') { location.hash = ''; }
+    else if (e.key.toLowerCase() === 'f' || e.key === 'כ') toggleFs();
+  });
+  route();
+})();
+</script>
+</body>
+</html>
