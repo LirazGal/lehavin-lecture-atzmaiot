@@ -6,7 +6,7 @@
 <title>לא צריך לפחד, צריך להבין | להבין AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Heebo:wght@400;500;700&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#F6F2F6; --card:#FFFFFF; --ink:#2E4541; --body:#3F4D49; --muted:#6B5A70;
@@ -14,7 +14,8 @@
   --mauve:#C4A9C2; --lav:#A99CAD; --lav-soft:#EBE5ED; --lav-deep:#6B5A70;
   --turq:#6FA39B; --turq-deep:#2C5C54; --turq-soft:#DDEAE7; --line:#E4DAE6;
   --accent:var(--rose-deep); --accent-soft:var(--blush-soft); --accent-mid:var(--rose);
-  --r:18px; --shadow:0 4px 18px rgba(107,90,112,.12);
+  --r:18px;
+  --squiggle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 14'%3E%3Cpath d='M3 9 C 18 2, 30 13, 46 7 S 74 2, 90 8 S 115 12, 127 4' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E"); --shadow:0 4px 18px rgba(107,90,112,.12);
 }
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -37,7 +38,7 @@ a{color:inherit}
 .ibtn:hover{background:var(--accent-soft)}
 
 /* home */
-.home{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+.home{max-width:1440px;margin:0 auto;padding:28px 28px 60px}
 .hero{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin:10px 0 30px}
 .hero h1{font-size:clamp(34px,5vw,58px);margin:4px 0;color:var(--rose-deep)}
 .hero p{color:var(--muted);margin:0;font-size:18px}
@@ -48,6 +49,27 @@ a{color:inherit}
 .scard h2{font-size:21px;margin:2px 0 4px}
 .scard p{margin:0;color:var(--muted);font-size:15px}
 .extra-title{margin:34px 0 12px;color:var(--muted);font:700 18px Rubik}
+/* journey path (home) */
+.hand{font-family:'Amatic SC',Rubik,cursive;font-weight:700}
+.journey{list-style:none;margin:70px 0 10px;padding:0;display:grid;grid-template-columns:repeat(8,1fr);gap:18px;position:relative}
+.journey .stop{position:relative;display:flex;flex-direction:column;align-items:center;text-decoration:none}
+.journey .dot{position:relative;z-index:2;width:74px;height:74px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;
+  font:800 26px Rubik;box-shadow:0 6px 16px rgba(46,69,65,.18);border:4px solid #fff;transition:transform .2s}
+.journey .stop:hover .dot{transform:scale(1.08) rotate(-4deg)}
+.journey .link{position:absolute;z-index:1;right:50%;width:calc(100% + 18px);height:64px;overflow:visible;pointer-events:none}
+.journey .link.up{top:-27px}.journey .link.down{top:37px}
+.journey .link path{fill:none;stroke:var(--lav-deep);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;opacity:.75}
+.journey .card-open{margin-top:44px;width:100%;background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:14px 14px 16px;text-align:center;border-top:6px solid var(--accent-mid);flex:1;transition:transform .2s}
+.journey .stop:hover .card-open{transform:translateY(-4px)}
+.journey .card-open h2{font-size:17px;margin:0 0 6px}
+.journey .card-open p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+.journey .start{position:absolute;top:-66px;left:50%;font-size:30px;color:var(--rose-deep);white-space:nowrap;transform:rotate(-5deg)}
+.journey .start svg{position:absolute;left:-26px;top:16px;width:34px;height:40px}
+.journey .start svg path{fill:none;stroke:var(--rose-deep);stroke-width:2.6;stroke-linecap:round}
+.homecta h2{display:inline-block;font-size:44px;color:var(--rose-deep);position:relative;margin-bottom:14px}
+.homecta h2::after,.view h1::after{content:"";display:block;height:14px;margin-top:2px;background:var(--accent-mid);
+  -webkit-mask:var(--squiggle) no-repeat 100% 0/100% 100%;mask:var(--squiggle) no-repeat 100% 0/100% 100%}
+.homecta h2::after{width:100%;background:var(--rose)}
 
 /* screen view */
 .view{max-width:1220px;margin:0 auto;padding:22px 24px 120px;min-height:calc(100vh - 66px);display:flex;flex-direction:column}
@@ -55,7 +77,7 @@ a{color:inherit}
 @media (min-width:821px){.view{min-height:0;padding:18px 24px;overflow:hidden}}
 .view .head{margin-bottom:22px}
 .view h1{font-size:clamp(28px,3.6vw,46px)}
-.view h1::after{content:"";display:block;width:90px;height:6px;border-radius:3px;background:var(--accent-mid);margin-top:12px}
+.view h1::after{width:130px;margin-top:6px}
 .view .sub{font-size:clamp(17px,1.8vw,22px);color:var(--muted);margin:0}
 .view .body{flex:1;display:flex;flex-direction:column;justify-content:center;font-size:clamp(16px,1.6vw,21px)}
 .nav{position:fixed;bottom:0;inset-inline:0;display:flex;justify-content:center;align-items:center;gap:14px;padding:12px;
@@ -165,7 +187,7 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
 .cta .card:nth-child(2){border-top-color:var(--turq)}
 .cta .btn{margin:8px 0 0}
 .contact{margin-top:14px;color:var(--muted);text-align:center}
-.contact a{color:var(--ink);font-weight:700}
+.contact a{color:var(--ink);font-weight:700;white-space:nowrap}
 .contact .sep{margin:0 10px;color:var(--line)}
 .closing-qr{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:22px}
 .closing-qr [data-qr]{background:#fff;padding:10px;border-radius:12px;box-shadow:var(--shadow)}
@@ -182,6 +204,13 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
   .steps span{padding-inline-start:0;margin-top:0}
   .bar{padding:8px 16px}.bar .logo img{height:52px}.bar .where{font-size:15px}
   .view,.home{padding-inline:16px}
+  .journey{grid-template-columns:1fr;gap:14px;margin-top:56px}
+  .journey::before{content:"";position:absolute;top:20px;bottom:20px;right:36px;border-right:3px dashed var(--lav)}
+  .journey .stop{flex-direction:row;align-items:center;gap:14px}
+  .journey .link{display:none}
+  .journey .dot{flex:none;width:64px;height:64px;font-size:22px}
+  .journey .card-open{margin-top:0;text-align:start}
+  .journey .start{top:-50px;right:0}
   .img{min-height:200px}
   .bubble.alt{margin-inline-end:0}
 }
@@ -224,9 +253,16 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
     where.textContent = '';
     const card = (s, i) => `<a class="scard c-${s.color}" href="#${s.id}/1">
         ${s.extra ? '' : `<div class="n">${i + 1}</div>`}<h2>${s.title}</h2><p>${s.desc}</p></a>`;
+    const UP = '<path d="M172 46 C 152 8, 66 0, 33 40"/><path d="M44 35 L33 40 L34 28"/>';
+    const DOWN = '<path d="M172 18 C 152 56, 66 62, 33 22"/><path d="M44 27 L33 22 L34 34"/>';
+    const stop = (s, i) => `<li><a class="stop c-${s.color}" href="#${s.id}/1">
+        ${i === 0 ? `<span class="start hand" aria-hidden="true">מתחילים כאן!<svg viewBox="0 0 36 40"><path d="M30 4 C 18 6, 8 16, 10 34"/><path d="M4 27 L10 35 L16 28"/></svg></span>` : ''}
+        ${i < main.length - 1 ? `<svg class="link ${i % 2 ? 'up' : 'down'}" viewBox="0 0 200 64" preserveAspectRatio="none" aria-hidden="true">${i % 2 ? UP : DOWN}</svg>` : ''}
+        <span class="dot">${String(i + 1).padStart(2, '0')}</span>
+        <span class="card-open"><h2>${s.title}</h2><p>${s.desc}</p></span></a></li>`;
     app.innerHTML = `<section class="home">
       <div class="hero"><div><h1>${LECTURE.kicker}</h1><p>${LECTURE.audience}</p></div></div>
-      <div class="cards">${main.map(card).join('')}</div>
+      <ol class="journey">${main.map(stop).join('')}</ol>
       ${extra.length ? `<div class="extra-title">ועוד</div><div class="cards">${extra.map(card).join('')}</div>` : ''}
       <div class="homecta"><h2>ומכאן?</h2>${ctaHTML()}</div>
     </section>`;
