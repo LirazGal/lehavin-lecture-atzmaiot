@@ -51,6 +51,8 @@ a{color:inherit}
 
 /* screen view */
 .view{max-width:1220px;margin:0 auto;padding:22px 24px 120px;min-height:calc(100vh - 66px);display:flex;flex-direction:column}
+.fit{flex:1;display:flex;flex-direction:column}
+@media (min-width:821px){.view{min-height:0;padding:18px 24px;overflow:hidden}}
 .view .head{margin-bottom:22px}
 .view h1{font-size:clamp(28px,3.6vw,46px)}
 .view h1::after{content:"";display:block;width:90px;height:6px;border-radius:3px;background:var(--accent-mid);margin-top:12px}
@@ -237,7 +239,7 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
     const num = main.indexOf(sec);
     where.textContent = (num >= 0 ? (num + 1) + '. ' : '') + sec.title;
     const head = sc.title ? `<div class="head"><h1>${sc.title}</h1>${sc.sub ? `<p class="sub">${sc.sub}</p>` : ''}</div>` : '';
-    app.innerHTML = `<section class="view">${head}<div class="body">${fill(sc.html)}</div></section>
+    app.innerHTML = `<section class="view"><div class="fit">${head}<div class="body">${fill(sc.html)}</div></div></section>
       <nav class="nav" aria-label="ניווט בין מסכים">
         <button class="ibtn" id="prev" type="button">הקודם</button>
         <div class="dots-nav">${sec.screens.map((_, i) => `<button type="button" aria-label="מסך ${i + 1}" class="${i === idx ? 'on' : ''}" data-go="${i}"></button>`).join('')}</div>
@@ -248,8 +250,31 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
     document.getElementById('next').onclick = () => step(1);
     app.querySelectorAll('[data-go]').forEach(b => b.onclick = () => go(sec.id, +b.dataset.go));
     enhance();
+    fitScreen();
     window.scrollTo(0, 0);
   }
+
+  /* every screen fits the window, no scrolling (desktop) */
+  function fitScreen(){
+    const view = app.querySelector('.view'), fit = app.querySelector('.fit');
+    if (!view || !fit) return;
+    fit.style.zoom = 1; view.style.height = '';
+    if (innerWidth <= 820) return;
+    const nav = document.querySelector('.nav'), bar = document.querySelector('.bar');
+    const avail = innerHeight - bar.offsetHeight - (nav ? nav.offsetHeight : 0);
+    view.style.height = avail + 'px';
+    const inner = avail - 36;
+    let z = 1;
+    for (let i = 0; i < 4; i++){
+      const h = fit.scrollHeight;
+      if (h * z <= inner + 1) break;
+      z = Math.max(0.45, z * inner / (h * z));
+      fit.style.zoom = z;
+    }
+  }
+  window.addEventListener('resize', fitScreen);
+  document.addEventListener('fullscreenchange', () => setTimeout(fitScreen, 120));
+  if (document.fonts) document.fonts.ready.then(fitScreen);
   function nextSectionLabel(sec){
     const i = SECTIONS.indexOf(sec);
     return i < SECTIONS.length - 1 ? 'לחלק הבא' : 'לבית';
