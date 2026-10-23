@@ -140,6 +140,11 @@ ul.dots li::marker{color:var(--accent-mid)}
 .era li:not(:last-child)::after{content:"";position:absolute;top:62px;left:calc(-50% + 70px);width:calc(100% - 140px + 28px);height:46px;background:var(--lav-deep);opacity:.7;
   -webkit-mask:var(--arrow) no-repeat center/100% 100%;mask:var(--arrow) no-repeat center/100% 100%}
 .era.two li:not(:last-child)::after{width:calc(100% - 140px + 24px)}
+.facts3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.facts3 div{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:10px;text-align:center}
+.facts3 b{display:block;font:800 1.5em Rubik;color:var(--rose-deep)}
+.facts3 span{color:var(--muted);font-size:.85em}
+.small-p{margin:0}
 .ctx{display:flex;flex-direction:column;gap:16px}
 .ctx p{margin:0;background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:20px 26px;font:700 clamp(24px,2.6vw,36px) Rubik;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .ctx mark{background:var(--blush);color:var(--ink);border-radius:8px;padding:0 10px}

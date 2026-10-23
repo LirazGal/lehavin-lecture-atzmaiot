@@ -181,23 +181,41 @@ const SECTIONS = [
       },
       {
         title: 'שנות ה 2000: המחשב לומד לבד',
+        sub: '2012: הניסוי של גוגל, מה זה חתול?',
         html: `
         <div class="grid g-1-1">
-          <div class="card">
-            <div class="img" data-img="cat.jpg" data-fit="contain" style="min-height:220px">חתול מול מחשב: What is a cat?</div>
-            <h3 class="mt" style="margin-bottom:4px"><span class="accent">2012</span> גוגל: מה זה חתול?</h3>
-            <p>16,000 מעבדים צפו ב 10 מיליון תמונות מיוטיוב, בלי שאף אחד הסביר להם כלום. אחרי שלושה ימים, הרשת זיהתה חתולים לבד.</p>
-          </div>
-          <div class="card">
-            <h3 style="margin-bottom:12px"><span class="accent">2017</span> ה Transformer: קורא משפט שלם</h3>
-            <div class="ctx small">
-              <p><span>הכלב לא נכנס לבית כי <mark>הוא</mark> היה עייף.</span><span class="who">← הכלב</span></p>
-              <p><span>הכלב לא נכנס לבית כי <mark>הוא</mark> היה נעול.</span><span class="who">← הבית</span></p>
+          <div class="stack">
+            <div class="img" data-img="cat.jpg" data-fit="contain" style="min-height:230px">חתול מול מחשב: What is a cat?</div>
+            <div class="facts3">
+              <div><b>16,000</b><span>מעבדים</span></div>
+              <div><b>מיליארד</b><span>חיבורים ברשת</span></div>
+              <div><b>10 מיליון</b><span>תמונות מיוטיוב</span></div>
             </div>
-            <p class="mt">אותה מילה, משמעות אחרת. המחשב לומד לראות את כל המשפט בבת אחת.</p>
-            <p class="strong">וה T ב ChatGPT? זה Transformer.</p>
+          </div>
+          <div class="stack">
+            <p class="small-p"><b>מי:</b> צוות מגוגל, עם החוקרים אנדרו נג וג'ף דין.</p>
+            <ol class="steps small">
+              <li><strong>מראים לרשת 10 מיליון תמונות מסרטונים אקראיים ביוטיוב</strong></li>
+              <li><strong>בלי שום הסבר. אף תמונה לא מסומנת "חתול"</strong></li>
+              <li><strong>אחרי שלושה ימים, חלק אחד ברשת "נדלק" בכל פעם שמופיע חתול</strong></li>
+            </ol>
+            <div class="note">מה שמדהים: אף אחד לא כתב לה חוקים מה זה חתול. הרשת בנתה לעצמה את "המתכון", בתוך מיליארד חיבורים. מתכון שאף אדם לא היה מצליח לכתוב ביד.</div>
           </div>
         </div>`,
+      },
+      {
+        title: '2017: ה Transformer',
+        sub: 'חוקרים מגוגל פרסמו מאמר בשם "Attention Is All You Need", ובו הציגו דרך חדשה לבנות מודל שפה. כמעט כל כלי ה AI שאנחנו מכירים היום בנוי עליה.',
+        html: `
+        <div class="grid g-1-1">
+          <div class="card top-lav"><h3>לפני</h3><p>מודלים קודמים קראו טקסט כמו שקוראים בקול: מילה אחרי מילה, לפי הסדר. עד שהגיעו לסוף משפט ארוך, הם כבר "שכחו" את ההתחלה. ולכן גם למדו לאט מאוד.</p></div>
+          <div class="card top-rose"><h3>אחרי</h3><p>ה Transformer קורא את כל המשפט בבת אחת, ובודק איך כל מילה קשורה לכל מילה אחרת. לזה קוראים <b>"תשומת לב"</b>, באנגלית Attention.</p></div>
+        </div>
+        <div class="ctx small mt">
+          <p><span>הכלב לא נכנס לבית כי <mark>הוא</mark> היה עייף.</span><span class="who">← הכלב</span></p>
+          <p><span>הכלב לא נכנס לבית כי <mark>הוא</mark> היה נעול.</span><span class="who">← הבית</span></p>
+        </div>
+        <p class="lg center mt strong" style="margin-bottom:0">וה T ב ChatGPT? זה Transformer.</p>`,
       },
       {
         title: 'ארבעה תחומים בוערים',
