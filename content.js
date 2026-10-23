@@ -15,7 +15,6 @@ const LECTURE = {
   links: {
     netflix: 'https://www.netflix.com/watch/82772145',
     quiz: 'https://lirazgal.github.io/lehavin-quiz/',
-    terms: 'https://ai-terms-match-he.lovable.app/',
     synthid: 'https://deepmind.google/models/synthid/',
     youtube: 'https://www.youtube.com/channel/UCv81fx_fjdWJpern4C2jyIA',
   },
@@ -144,67 +143,65 @@ const SECTIONS = [
 
   /* ---------------- 4. איך הגענו לכאן ---------------- */
   {
-    id: 'history', color: 'lav', title: 'איך הגענו לכאן?', desc: 'מ 1956 ועד היום, עם חתול אחד ומשחק קטן',
+    id: 'history', color: 'lav', title: 'איך הגענו לכאן?', desc: 'משנות ה 50 ועד שנת הסוכנים',
     screens: [
       {
-        title: 'איך הגענו לכאן?',
-        sub: 'בינה מלאכותית, במילים פשוטות: מחשב שלומד מדוגמאות, במקום לקבל הוראות צעד אחר צעד',
+        title: 'משנות ה 50 עד שנות ה 90',
+        sub: 'מהשאלה "מכונה יכולה לחשוב?" ועד מכונה שמנצחת אלוף עולם',
         html: `
-        <ol class="timeline">
-          <li><b>1956</b><span>נולד המונח "בינה מלאכותית"</span></li>
-          <li><b>1997</b><span>Deep Blue מנצח את קספרוב בשחמט</span></li>
-          <li class="hot"><b>2012</b><span>הניסוי של גוגל: מה זה חתול?</span></li>
-          <li><b>2017</b><span>ה Transformer: המנוע של היום</span></li>
-          <li><b>2022</b><span>ChatGPT: AI לכל אחד ואחת</span></li>
-          <li class="now"><b>2026</b><span>סוכנים: AI שעושה, לא רק עונה</span></li>
-        </ol>`,
+        <ol class="decades">
+          <li>
+            <span class="era-dot">50</span>
+            <h3>נולד רעיון</h3>
+            <ul>
+              <li><b>1950</b><span>מבחן טיורינג: מכונה יכולה לחשוב? <i>אלן טיורינג</i></span></li>
+              <li><b>1952</b><span>תוכנה שלומדת לשחק דמקה <i>ארתור סמואל</i></span></li>
+              <li><b>1956</b><span>נטבע המונח Artificial Intelligence <i>ג'ון מקארתי</i></span></li>
+            </ul>
+          </li>
+          <li>
+            <span class="era-dot">70-80</span>
+            <h3>לומד לדבר ולראות</h3>
+            <ul>
+              <li><b>1970</b><span>מזיז קוביות לפי פקודות באנגלית <i>SHRDLU</i></span></li>
+              <li><b>1982</b><span>יפן משיקה פרויקט ענק למחשבים חכמים</span></li>
+              <li><b>1989</b><span>רשת עצבית מזהה כתב יד <i>יאן לקון</i></span></li>
+            </ul>
+          </li>
+          <li>
+            <span class="era-dot">90</span>
+            <h3>המכונה מנצחת</h3>
+            <ul>
+              <li><b>1994</b><span>Chinook מנצחת את אלוף העולם בדמקה</span></li>
+              <li><b>1997</b><span>Deep Blue מנצח את קספרוב בשחמט</span></li>
+            </ul>
+          </li>
+        </ol>
+        <div class="note center mt">השלב הראשון: מערכת שיודעת לבצע משימה אחת, טוב יותר מכל אדם</div>`,
       },
       {
-        title: '2012: הניסוי של גוגל, מה זה חתול?',
-        sub: 'אף אחד לא הסביר לו. הוא פשוט ראה מספיק',
-        html: `
-        <div class="grid g-1-1">
-          <div class="img" data-img="cat.jpg" data-fit="contain">"פרצוף החתול" שהרשת של גוגל יצרה בעצמה</div>
-          <div class="stack">
-            <div class="fact"><b>16,000</b><span>מעבדי מחשב עבדו יחד</span></div>
-            <div class="fact"><b>10 מיליון</b><span>תמונות מסרטוני YouTube</span></div>
-            <div class="fact"><b>0</b><span>פעמים שמישהו אמר לה "זה חתול"</span></div>
-            <div class="note">התוצאה: הרשת למדה לזהות חתולים בעצמה</div>
-          </div>
-        </div>`,
-      },
-      {
-        title: 'משחק: המשפט המבולגן',
-        sub: 'מילה אחת לכל משתתף ומשתתפת. ביחד: משפט הגיוני אחד על עולם ה AI',
+        title: 'שנות ה 2000: המחשב לומד לבד',
         html: `
         <div class="grid g-1-1">
           <div class="card">
-            <h3 class="accent">סבב 1</h3>
-            <ul class="dots lg">
-              <li>20 כרטיסים, 20 מילים</li>
-              <li>בלי לדעת מה המשפט</li>
-              <li>סידור בשורה, מימין לשמאל</li>
-            </ul>
+            <div class="img" data-img="cat.jpg" data-fit="contain" style="min-height:220px">חתול מול מחשב: What is a cat?</div>
+            <h3 class="mt" style="margin-bottom:4px"><span class="accent">2012</span> גוגל: מה זה חתול?</h3>
+            <p>16,000 מעבדים צפו ב 10 מיליון תמונות מיוטיוב, בלי שאף אחד הסביר להם כלום. אחרי שלושה ימים, הרשת זיהתה חתולים לבד.</p>
           </div>
-          <div class="sw" data-sw="r1"></div>
-        </div>`,
-      },
-      {
-        title: 'סבב 2: עכשיו עם המשפט על הלוח',
-        html: `
-        <div class="words" data-sentence></div>
-        <div class="grid g-1-1 mt">
-          <div class="sw" data-sw="r2"></div>
-          <div class="card center">
-            <p class="muted">סבב 1: <b class="mono" data-result="r1">--:--</b></p>
-            <p class="muted">סבב 2: <b class="mono" data-result="r2">--:--</b></p>
-            <p class="xl strong">מה השתנה?</p>
+          <div class="card">
+            <h3 style="margin-bottom:12px"><span class="accent">2017</span> ה Transformer: קורא משפט שלם</h3>
+            <div class="ctx small">
+              <p><span>הכלב לא נכנס לבית כי <mark>הוא</mark> היה עייף.</span><span class="who">← הכלב</span></p>
+              <p><span>הכלב לא נכנס לבית כי <mark>הוא</mark> היה נעול.</span><span class="who">← הבית</span></p>
+            </div>
+            <p class="mt">אותה מילה, משמעות אחרת. המחשב לומד לראות את כל המשפט בבת אחת.</p>
+            <p class="strong">וה T ב ChatGPT? זה Transformer.</p>
           </div>
         </div>`,
       },
       {
-        title: 'למה בפעם השנייה היה הרבה יותר קל?',
-        sub: 'כי היה לנו מידע קודם. וזה בדיוק הסוד של AI',
+        title: 'ארבעה תחומים בוערים',
+        sub: 'מתפתחים בקצב מטורף, וביחד הם מה שמאפשר ל AI ללמוד',
         html: `
         <div class="grid g-4">
           <div class="card top-rose"><h3>זיהוי תבניות</h3><p>מוצא חוקיות בתוך ים של מידע</p></div>
@@ -214,19 +211,31 @@ const SECTIONS = [
         </div>`,
       },
       {
-        title: 'משחק המשפט: גרסה לבית',
+        title: 'ומשם, הכל קרה מהר',
+        html: `
+        <div class="leap">
+          <div class="leap-box">
+            <span class="leap-date">נובמבר 2022</span>
+            <h3>ChatGPT יוצא לעולם</h3>
+            <p>AI שמדברים איתו בשפה רגילה. 100 מיליון משתמשים בחודשיים.</p>
+          </div>
+          <div class="leap-arrow" aria-hidden="true"></div>
+          <div class="leap-box hot">
+            <span class="leap-date">2026</span>
+            <h3>שנת "הסוכנים לכולם"!</h3>
+            <p>AI שלא רק עונה, אלא עושה: שולח, מסדר, בודק ומזכיר.</p>
+          </div>
+        </div>`,
+      },
+      {
+        title: 'משחק: הסדר הנכון של המשפט',
         sub: 'לחיצה על המילים לפי הסדר הנכון. השעון מתחיל בלחיצה הראשונה',
         html: `<div data-wordgame></div>`,
       },
       {
         title: 'השפה של AI',
-        sub: 'משחק התאמה: כל מושג וההסבר שלו',
-        html: `
-        <div class="terms">
-          <span>LLM</span><span>פרומפט</span><span>הזיה</span><span>סוכן AI</span>
-          <span>סקיל</span><span>פלאגין</span><span>חיבור MCP</span><span>אוטומציה</span>
-        </div>
-        <div class="center mt"><a class="btn" href="{{terms}}" target="_blank" rel="noopener">למשחק ההתאמה</a></div>`,
+        sub: 'גוררים כל הגדרה אל המושג שלה. אפשר גם ללחוץ על הגדרה ואז על המושג',
+        html: `<div data-match></div>`,
       },
     ],
   },
@@ -401,4 +410,16 @@ const SECTIONS = [
 ];
 
 /* המשפט של משחק המשפט: בדיוק 20 מילים */
+/* משחק ההתאמה: מושג והגדרה */
+const TERMS = [
+  ['LLM', 'מודל שפה גדול: המוח שמאחורי הצ\'אט, שלמד מכמויות עצומות של טקסט'],
+  ['פרומפט', 'ההוראה או השאלה שכותבים ל AI'],
+  ['הזיה', 'תשובה שנשמעת בטוחה מאוד, אבל פשוט לא נכונה'],
+  ['סוכן AI', 'AI שלא רק עונה, אלא יוצא לבצע משימות בעצמו'],
+  ['סקיל', 'חבילת הוראות קבועה שמלמדת את ה AI לבצע משימה מסוימת, כל פעם באותה דרך'],
+  ['פלאגין', 'תוסף שמוסיף ל AI יכולות חדשות, כמו אפליקציה בטלפון'],
+  ['חיבור MCP', 'שקע אוניברסלי שמחבר את ה AI לכלים שלנו: מייל, יומן, קבצים'],
+  ['אוטומציה', 'תהליך שרץ לבד לפי כללים קבועים: אם קרה X, קורה Y'],
+];
+
 const SENTENCE = 'בינה מלאכותית לומדת מתוך מיליוני דוגמאות, מזהה תבניות בשפה ובתמונות, ולכן היא יודעת לנחש מה הכי סביר שיבוא אחר כך';
