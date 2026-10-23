@@ -197,7 +197,7 @@ const SECTIONS = [
             <ol class="steps small">
               <li><strong>מראים לרשת 10 מיליון תמונות מסרטונים אקראיים ביוטיוב</strong></li>
               <li><strong>בלי שום הסבר. אף תמונה לא מסומנת "חתול"</strong></li>
-              <li><strong>אחרי שלושה ימים, חלק אחד ברשת "נדלק" בכל פעם שמופיע חתול</strong></li>
+              <li><strong>אחרי 3 ימים, החוקרים מצאו ברשת "נוירון" אחד שמגיב לפרצופים של חתולים</strong></li>
             </ol>
             <div class="note">מה שמדהים: אף אחד לא כתב לה חוקים מה זה חתול. הרשת בנתה לעצמה את "המתכון", בתוך מיליארד חיבורים. מתכון שאף אדם לא היה מצליח לכתוב ביד.</div>
           </div>
@@ -223,7 +223,7 @@ const SECTIONS = [
         html: `
         <div class="grid g-4">
           <div class="card top-rose"><h3>זיהוי תבניות</h3><p>מוצא חוקיות בתוך ים של מידע</p></div>
-          <div class="card top-lav"><h3>עיבוד שפה טבעית</h3><p>מבין וכותב שפה אנושית. באנגלית: NLP</p></div>
+          <div class="card top-lav"><h3>עיבוד שפה טבעית</h3><p>מבין וכותב שפה אנושית.</p><p class="muted" style="font-size:.85em">NLP: Natural Language Processing. לא ה NLP מעולם הפסיכולוגיה</p></div>
           <div class="card top-turq"><h3>למידת מכונה</h3><p>לומד מדוגמאות, לא מהוראות. באנגלית: Machine Learning</p></div>
           <div class="card top-mauve"><h3>עיבוד תמונה</h3><p>רואה, מזהה ומבין תמונות</p></div>
         </div>`,
@@ -237,7 +237,11 @@ const SECTIONS = [
             <h3>ChatGPT יוצא לעולם</h3>
             <p>AI שמדברים איתו בשפה רגילה. 100 מיליון משתמשים בחודשיים.</p>
           </div>
-          <div class="leap-arrow" aria-hidden="true"></div>
+          <div class="leap-mid">
+            <div class="leap-cloud"><span style="--r:-6deg">Claude</span><span style="--r:4deg">Gemini</span><span style="--r:-3deg">Copilot</span><span style="--r:7deg">Midjourney</span><span style="--r:-5deg">Perplexity</span><span style="--r:3deg">NotebookLM</span><span style="--r:-8deg">Sora</span><span style="--r:5deg">Suno</span><span style="--r:-2deg">Canva AI</span><span style="--r:6deg">Lovable</span><span style="--r:-4deg">DeepSeek</span><span style="--r:8deg">Llama</span></div>
+            <div class="leap-arrow" aria-hidden="true"></div>
+            <p class="hand leap-note">ובאמצע? מאות כלים חדשים</p>
+          </div>
           <div class="leap-box hot">
             <span class="leap-date">2026</span>
             <h3>שנת "הסוכנים לכולם"!</h3>
@@ -266,9 +270,9 @@ const SECTIONS = [
         title: '3 מיומנויות חשובות בתקופה הזאת',
         html: `
         <div class="grid g-3">
-          <div class="card top-turq center"><div class="num turq">1</div><h3>ללמוד את הכלים</h3><p class="muted">היכרות עם מה שקיים, ובחירה נכונה</p></div>
-          <div class="card top-lav center"><div class="num lav">2</div><h3>לחפש את האמת</h3><p class="muted">בדיקה לפני אמון</p></div>
-          <div class="card top-rose center"><div class="num rose">3</div><h3>לחזק את הקשר האנושי</h3><p class="muted">מה שאין לשום מכונה</p></div>
+          <div class="card top-turq center"><div class="num turq">1</div><h3>ללמוד את הכלים</h3><p class="muted">מה הכלי עושה, איך עובדים איתו נכון, והאם הוא מתאים לצרכים שלי?</p></div>
+          <div class="card top-lav center"><div class="num lav">2</div><h3>לחפש את האמת</h3><p class="muted">לא מתעצלים לבדוק את התשובות והתוצרים שלו</p></div>
+          <div class="card top-rose center"><div class="num rose">3</div><h3>לחזק את הקשר האנושי</h3><p class="muted">שום מכונה לא תחליף יד מושטת, חיבוק ומבט בעיניים</p></div>
         </div>`,
       },
       {
