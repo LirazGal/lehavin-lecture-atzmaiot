@@ -134,8 +134,9 @@ const SECTIONS = [
         sub: 'סריקת הברקוד מהטלפון, ומתחילים',
         html: `
         <div class="center">
-          <a class="btn big" href="{{quiz}}" target="_blank" rel="noopener">לכניסה למשחק</a>
-          <p class="muted">הברקוד מופיע על מסך המשחק</p>
+          <a class="btn big" href="https://lirazgal.github.io/lehavin-quiz/?role=host&key=u7dc8dk6hh" target="_blank" rel="noopener">פתיחת מסך המנחה</a>
+          <p class="muted mt">הברקוד להצטרפות מופיע על מסך המנחה</p>
+          <a class="small-link" href="{{quiz}}" target="_blank" rel="noopener">כניסה למשחק מהטלפון</a>
         </div>`,
       },
     ],

@@ -121,6 +121,12 @@ ul.dots li::marker{color:var(--accent-mid)}
 .sl-dots{position:absolute;bottom:12px;inset-inline:0;display:flex;justify-content:center;gap:8px}
 .sl-dots button{width:11px;height:11px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer}
 .sl-dots button.on{background:var(--accent);width:26px;border-radius:6px}
+.small-link{background:none;border:0;padding:4px;color:var(--muted);text-decoration:underline;font:500 15px Heebo;cursor:pointer}
+.hostkey{display:inline-flex;flex-direction:column;gap:8px;align-items:center;background:var(--card);padding:20px 24px;border-radius:var(--r);box-shadow:var(--shadow)}
+.hostkey label{color:var(--muted)}
+.hostkey div{display:flex;gap:10px;align-items:center}
+.hostkey input{font:500 18px Heebo;padding:12px 14px;border:1px solid var(--line);border-radius:12px;width:220px;direction:ltr}
+.hostkey .btn{margin:0}
 .me-links{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:6px}
 .me-links .yt{display:flex;align-items:center;gap:12px}
 .me-links .yt [data-qr]{background:#fff;padding:6px;border-radius:10px;box-shadow:var(--shadow)}
@@ -365,6 +371,25 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
       else el.innerHTML = `<p>${url}</p>`;
     });
     app.querySelectorAll('[data-slider]').forEach(slider);
+    app.querySelectorAll('[data-hostlink]').forEach(hostLink);
+  }
+
+  /* host screen of the quiz: the key is typed once on the presenter's computer and kept only there */
+  function hostLink(el){
+    const base = el.dataset.url, K = 'lehavin-quiz-host-key';
+    const get = () => { try { return localStorage.getItem(K) || ''; } catch(e){ return ''; } };
+    const open = key => window.open(base + '?role=host&key=' + encodeURIComponent(key), '_blank', 'noopener');
+    const draw = () => {
+      const key = get();
+      el.innerHTML = key
+        ? `<button class="btn big" type="button" data-go>פתיחת מסך המנחה</button><div><button class="small-link" type="button" data-forget>החלפת מפתח</button></div>`
+        : `<form class="hostkey" data-form><label for="hk">מפתח מסך המנחה (נשמר רק במחשב הזה)</label>
+           <div><input id="hk" type="password" autocomplete="off" required><button class="btn" type="submit">פתיחת מסך המנחה</button></div></form>`;
+      const go = el.querySelector('[data-go]'); if (go) go.onclick = () => open(get());
+      const fg = el.querySelector('[data-forget]'); if (fg) fg.onclick = () => { try { localStorage.removeItem(K); } catch(e){} draw(); };
+      const f = el.querySelector('[data-form]'); if (f) f.onsubmit = e => { e.preventDefault(); const v = f.querySelector('input').value.trim(); if (!v) return; try { localStorage.setItem(K, v); } catch(e){} open(v); draw(); };
+    };
+    draw();
   }
 
   function slider(el){
