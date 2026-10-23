@@ -22,12 +22,12 @@ const LECTURE = {
   cta: [
     {
       title: 'ללמוד לעומק',
-      text: 'מפגש עבודה אישי, אחד על אחד, על מה שהכי רלוונטי לעסק',
+      text: 'מפגש עבודה אישי, אחד על אחד. מתחילים ממה שהכי בוער בעסק',
       wa: 'היי לירז, הייתי בהרצאה בעצמאיות ואשמח לשמוע על מפגש עבודה אישי',
     },
     {
       title: 'הרצאה כזו במקום נוסף',
-      text: 'קבוצה, ארגון או קהילה שישמחו לשמוע? אשמח לחיבור',
+      text: 'מכירים קבוצה או קהילה שתשמח לשמוע? אשמח לחיבור',
       wa: 'היי לירז, הייתי בהרצאה בעצמאיות ויש לי רעיון למקום שישמח להרצאה כזו',
     },
   ],
@@ -36,11 +36,11 @@ const LECTURE = {
 const SECTIONS = [
   /* ---------------- 1. פתיחה ---------------- */
   {
-    id: 'open', color: 'rose', title: 'פתיחה', desc: 'Waymo, המעלית והסוס',
+    id: 'open', color: 'rose', title: 'פתיחה', desc: 'נסיעה בלי נהג, מעלית בלי מפעיל, וסוס אחד עקשן',
     screens: [
       {
         title: 'נסיעה בלי נהג: כן או לא?',
-        sub: 'מונית אוטונומית, היום, ברחובות אמיתיים',
+        sub: 'לא מדע בדיוני. מונית בלי נהג, היום, ברחובות אמיתיים',
         html: `
         <div class="grid g-2-1">
           <a class="video" href="{{netflix}}" target="_blank" rel="noopener">
@@ -97,7 +97,7 @@ const SECTIONS = [
 
   /* ---------------- 2. נעים להכיר ---------------- */
   {
-    id: 'me', color: 'rose', title: 'נעים להכיר', desc: 'מי אני ולמה AI',
+    id: 'me', color: 'rose', title: 'נעים להכיר', desc: 'מי אני, ולמה אני חופרת על AI',
     screens: [
       {
         title: 'נעים להכיר',
@@ -105,15 +105,15 @@ const SECTIONS = [
         <div class="grid g-1-1">
           <div class="slider" data-slider>
             <figure><img src="assets/me-trainer.jpg" alt="איור של לירז מחזיקה רובוט קטן בתוך כדור שלג"><figcaption>מעל 20 שנה מדריכת טכנולוגיות</figcaption></figure>
-            <figure><img src="assets/me-facilitator.jpg" alt="לירז מנחה מול קבוצה"><figcaption>מנחה, מסבירה, מחברת בין אנשים לטכנולוגיה</figcaption></figure>
+            <figure><img src="assets/me-facilitator.jpg" alt="לירז מנחה מול קבוצה"><figcaption>מתרגמת את הבאזז למילים פשוטות</figcaption></figure>
             <figure><img src="assets/costumes.png" alt="שתי תחפושות רובוט של לירז: אחת מ 1984 ואחת של ChatGPT מ 2023"><figcaption>מאז ומתמיד סקרנית לטכנולוגיה</figcaption></figure>
           </div>
           <div>
             <ul class="dots lg">
-              <li>מעל 20 שנה בהדרכה טכנולוגית, הטמעת SAP וניהול שינוי בארגונים גלובליים</li>
-              <li>מייסדת להבין AI: הרצאות, סדנאות וליווי עסקים</li>
-              <li>עצמאית, עם צוות של סוכנים דיגיטליים שעובדים איתי כל יום</li>
-              <li>בעלת ערוץ יוטיוב: שירים שנעשו ב AI</li>
+              <li>מעל 20 שנה מלמדת טכנולוגיה, בגובה העיניים</li>
+              <li>הקמתי את להבין AI: הרצאות, סדנאות וליווי לעסקים</li>
+              <li>עובדת יום יום עם צוות סוכנים דיגיטליים שהקמתי</li>
+              <li>ויש לי ערוץ יוטיוב של שירים שיצרתי עם AI</li>
             </ul>
             <div class="me-links">
               <div class="yt"><div data-qr data-qr-url="{{youtube}}" data-qr-size="104"></div><a href="{{youtube}}" target="_blank" rel="noopener">לערוץ היוטיוב</a></div>
@@ -143,11 +143,11 @@ const SECTIONS = [
 
   /* ---------------- 4. איך הגענו לכאן ---------------- */
   {
-    id: 'history', color: 'lav', title: 'איך הגענו לכאן?', desc: 'ציר הזמן, החתול של גוגל ומשחק המשפט',
+    id: 'history', color: 'lav', title: 'איך הגענו לכאן?', desc: 'מ 1956 ועד היום, עם חתול אחד ומשחק קטן',
     screens: [
       {
         title: 'איך הגענו לכאן?',
-        sub: 'בינה מלאכותית: מחשב שלומד מדוגמאות במקום לקבל הוראות צעד אחר צעד',
+        sub: 'בינה מלאכותית, במילים פשוטות: מחשב שלומד מדוגמאות, במקום לקבל הוראות צעד אחר צעד',
         html: `
         <ol class="timeline">
           <li><b>1956</b><span>נולד המונח "בינה מלאכותית"</span></li>
@@ -160,7 +160,7 @@ const SECTIONS = [
       },
       {
         title: '2012: הניסוי של גוגל, מה זה חתול?',
-        sub: 'מחשב שגילה לבד מה זה חתול',
+        sub: 'אף אחד לא הסביר לו. הוא פשוט ראה מספיק',
         html: `
         <div class="grid g-1-1">
           <div class="img" data-img="cat.jpg" data-fit="contain">"פרצוף החתול" שהרשת של גוגל יצרה בעצמה</div>
@@ -232,7 +232,7 @@ const SECTIONS = [
 
   /* ---------------- 5. מיומנות 1 ---------------- */
   {
-    id: 'tools', color: 'turq', title: 'מיומנות 1: ללמוד את הכלים', desc: 'חכ"ם, צ\'אטבוט וסוכן, SAE, כלים ואוטומציה',
+    id: 'tools', color: 'turq', title: 'מיומנות 1: ללמוד את הכלים', desc: 'איך מדברים עם AI, ומה ההבדל בין צ\'אט לסוכן',
     screens: [
       {
         title: '3 מיומנויות חשובות בתקופה הזאת',
@@ -249,7 +249,7 @@ const SECTIONS = [
         <div class="grid g-3">
           <div class="card center"><div class="letter">ח</div><h3>חשיפה</h3><p>כל מה שהבוט צריך לדעת כדי להבין את התמונה: רקע, קהל יעד, מה כבר נעשה, מה נוסה ולא עבד.</p></div>
           <div class="card center"><div class="letter">כ</div><h3>כיוון</h3><p>איזה וייב מחפשים? רציני, הומוריסטי, נוסטלגי? כמו במאי שנותן הוראות לשחקנים בסצנה.</p></div>
-          <div class="card center"><div class="letter">ם</div><h3>מטרה מהממת</h3><p>מה המטרה, ומה יהפוך את התשובה לכזאת שגורמת להגיד "וואו!"</p></div>
+          <div class="card center"><div class="letter">ם</div><h3>מטרה מהממת</h3><p>לאן רוצים להגיע, ומה יגרום לנו להגיד "וואו!" כשהתשובה תגיע.</p></div>
         </div>`,
       },
       {
@@ -259,7 +259,7 @@ const SECTIONS = [
         <div class="tablewrap"><table>
           <thead><tr><th>מאפיין</th><th>צ'אטבוט, Chatbot</th><th class="hl">סוכן AI, Agent</th></tr></thead>
           <tbody>
-            <tr><th>אוטונומיה</th><td>תגובתי: עונה רק כשפונים אליו</td><td class="hl">פרואקטיבי: יוזם ומזהה מצבים בעצמו</td></tr>
+            <tr><th>עצמאות</th><td>מגיב: עונה רק כשפונים אליו</td><td class="hl">יוזם: מזהה מצבים ופועל בעצמו</td></tr>
             <tr><th>תכנון</th><td>מוגבל: צריך לקבל את הצעדים מבחוץ</td><td class="hl">גבוה: מתכנן צעדים קדימה</td></tr>
             <tr><th>שימוש בכלים</th><td>מוגבל או בכלל לא</td><td class="hl">מחובר למייל, יומן, קבצים ואוטומציות</td></tr>
             <tr><th>זיכרון</th><td>בדרך כלל שוכח בסוף השיחה</td><td class="hl">זוכר, לומד ומשתפר לאורך זמן</td></tr>
@@ -281,7 +281,6 @@ const SECTIONS = [
       },
       {
         title: 'מי עושה מה? הכלים שכדאי להכיר',
-        sub: 'טיוטה לעדכון',
         html: `
         <div class="grid g-2">
           <div class="card side-turq"><h3>ChatGPT</h3><p>השיחה הכללית: כתיבה, רעיונות, תמונות</p></div>
@@ -302,7 +301,7 @@ const SECTIONS = [
       },
       {
         title: 'ככה זה נראה אצלי: הצוות הדיגיטלי',
-        sub: 'סוכנים עם שם, תפקיד ואופי, ומוח משותף אחד',
+        sub: 'כן, יש להם שמות. וכן, אני מדברת איתם',
         html: `
         <div class="grid g-2-1">
           <div class="stack">
@@ -323,7 +322,7 @@ const SECTIONS = [
 
   /* ---------------- 6. מיומנות 2 ---------------- */
   {
-    id: 'truth', color: 'lav', title: 'מיומנות 2: לחפש את האמת', desc: 'הזיות, ואיך בודקים אם תמונה נוצרה ב AI',
+    id: 'truth', color: 'lav', title: 'מיומנות 2: לחפש את האמת', desc: 'AI טועה בביטחון מלא. ככה תופסים אותו',
     screens: [
       {
         title: 'הזיה: תשובה בטוחה בעצמה ושגויה',
