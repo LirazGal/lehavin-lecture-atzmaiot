@@ -17,6 +17,7 @@ const LECTURE = {
     quiz: 'https://lirazgal.github.io/lehavin-quiz/',
     terms: 'https://ai-terms-match-he.lovable.app/',
     synthid: 'https://deepmind.google/models/synthid/',
+    youtube: 'https://www.youtube.com/channel/UCv81fx_fjdWJpern4C2jyIA',
   },
   cta: [
     {
@@ -101,18 +102,23 @@ const SECTIONS = [
       {
         title: 'נעים להכיר',
         html: `
-        <div class="grid g-3-2">
-          <figure class="photo">
-            <img src="assets/costumes.png" alt="שתי תחפושות רובוט של לירז: אחת מ 1984 ואחת של ChatGPT מ 2023">
-            <figcaption>מאז ומתמיד סקרנית לטכנולוגיה</figcaption>
-          </figure>
+        <div class="grid g-1-1">
+          <div class="slider" data-slider>
+            <figure><img src="assets/me-trainer.jpg" alt="איור של לירז מחזיקה רובוט קטן בתוך כדור שלג"><figcaption>מעל 20 שנה מדריכת טכנולוגיות</figcaption></figure>
+            <figure><img src="assets/me-facilitator.jpg" alt="לירז מנחה מול קבוצה"><figcaption>מנחה, מסבירה, מחברת בין אנשים לטכנולוגיה</figcaption></figure>
+            <figure><img src="assets/costumes.png" alt="שתי תחפושות רובוט של לירז: אחת מ 1984 ואחת של ChatGPT מ 2023"><figcaption>מאז ומתמיד סקרנית לטכנולוגיה</figcaption></figure>
+          </div>
           <div>
             <ul class="dots lg">
               <li>מעל 20 שנה בהדרכה טכנולוגית, הטמעת SAP וניהול שינוי בארגונים גלובליים</li>
               <li>מייסדת להבין AI: הרצאות, סדנאות וליווי עסקים</li>
               <li>עצמאית, עם צוות של סוכנים דיגיטליים שעובדים איתי כל יום</li>
+              <li>בעלת ערוץ יוטיוב: שירים שנעשו ב AI</li>
             </ul>
-            <p class="lg accent strong">טכנולוגיה בשירות האדם</p>
+            <div class="me-links">
+              <div class="yt"><div data-qr data-qr-url="{{youtube}}" data-qr-size="104"></div><a href="{{youtube}}" target="_blank" rel="noopener">לערוץ היוטיוב</a></div>
+              <div><p class="lg accent strong">טכנולוגיה בשירות האדם</p><a class="site" href="https://lehavinai.co.il" target="_blank" rel="noopener"><bdi dir="ltr">LehavinAI.co.il</bdi></a></div>
+            </div>
           </div>
         </div>`,
       },

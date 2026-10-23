@@ -110,6 +110,23 @@ ul.dots li::marker{color:var(--accent-mid)}
   display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--accent);font-style:italic}
 .img.has{border:0;color:transparent;box-shadow:var(--shadow)}
 .img.has[data-fit=contain]{background-size:contain;background-color:#E9DDEC}
+.slider{position:relative;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:12px 12px 40px;height:clamp(320px,60vh,540px)}
+.slider figure{position:absolute;inset:12px 12px 40px;margin:0;display:flex;flex-direction:column;opacity:0;transition:opacity .45s;pointer-events:none}
+.slider figure.on{opacity:1;pointer-events:auto}
+.slider img{flex:1;min-height:0;width:100%;object-fit:contain;background:var(--lav-soft);border-radius:10px}
+.slider figcaption{text-align:center;color:var(--muted);font-style:italic;margin-top:8px}
+.sl-btn{position:absolute;top:45%;z-index:2;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.92);box-shadow:var(--shadow);font:700 30px/1 Rubik;color:var(--ink);cursor:pointer}
+.sl-btn:hover{background:var(--blush-soft)}
+.sl-prev{right:20px}.sl-next{left:20px}
+.sl-dots{position:absolute;bottom:12px;inset-inline:0;display:flex;justify-content:center;gap:8px}
+.sl-dots button{width:11px;height:11px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer}
+.sl-dots button.on{background:var(--accent);width:26px;border-radius:6px}
+.me-links{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:6px}
+.me-links .yt{display:flex;align-items:center;gap:12px}
+.me-links .yt [data-qr]{background:#fff;padding:6px;border-radius:10px;box-shadow:var(--shadow)}
+.me-links a{color:var(--ink);font-weight:700}
+.me-links p{margin:0 0 2px}
+.me-links .site{font:700 1.2em Rubik;color:var(--rose-deep)}
 .photo{margin:0;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:12px}
 .photo img{width:100%;display:block;border-radius:10px}
 .photo figcaption{text-align:center;color:var(--muted);font-style:italic;margin-top:8px}
@@ -343,10 +360,24 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
     app.querySelectorAll('[data-wordgame]').forEach(wordGame);
     app.querySelectorAll('[data-cta]').forEach(el => el.innerHTML = ctaHTML());
     app.querySelectorAll('[data-qr]').forEach(el => {
-      const url = location.href.split('#')[0];
-      if (window.QRCode) new QRCode(el, { text: url, width: 150, height: 150, colorDark: '#2E4541', colorLight: '#FFFFFF' });
+      const url = el.dataset.qrUrl || location.href.split('#')[0], n = +(el.dataset.qrSize || 150);
+      if (window.QRCode) new QRCode(el, { text: url, width: n, height: n, colorDark: '#2E4541', colorLight: '#FFFFFF' });
       else el.innerHTML = `<p>${url}</p>`;
     });
+    app.querySelectorAll('[data-slider]').forEach(slider);
+  }
+
+  function slider(el){
+    const figs = [...el.querySelectorAll('figure')]; let i = 0;
+    el.insertAdjacentHTML('beforeend', `<button class="sl-btn sl-prev" type="button" aria-label="התמונה הקודמת">&#8250;</button>
+      <button class="sl-btn sl-next" type="button" aria-label="התמונה הבאה">&#8249;</button>
+      <div class="sl-dots">${figs.map((_, k) => `<button type="button" aria-label="תמונה ${k + 1}"></button>`).join('')}</div>`);
+    const dots = [...el.querySelectorAll('.sl-dots button')];
+    const show = k => { i = (k + figs.length) % figs.length; figs.forEach((f, n) => f.classList.toggle('on', n === i)); dots.forEach((d, n) => d.classList.toggle('on', n === i)); };
+    el.querySelector('.sl-prev').onclick = e => { e.stopPropagation(); show(i - 1); };
+    el.querySelector('.sl-next').onclick = e => { e.stopPropagation(); show(i + 1); };
+    dots.forEach((d, n) => d.onclick = () => show(n));
+    show(0);
   }
 
   function stopwatch(el){
