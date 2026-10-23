@@ -269,10 +269,25 @@ const SECTIONS = [
       {
         title: '3 מיומנויות חשובות בתקופה הזאת',
         html: `
-        <div class="grid g-3">
-          <div class="card top-turq center"><div class="num turq">1</div><h3>ללמוד את הכלים</h3><p class="muted">מה הכלי עושה, איך עובדים איתו נכון, והאם הוא מתאים לצרכים שלי?</p></div>
-          <div class="card top-lav center"><div class="num lav">2</div><h3>לחפש את האמת</h3><p class="muted">לא מתעצלים לבדוק את התשובות והתוצרים שלו</p></div>
-          <div class="card top-rose center"><div class="num rose">3</div><h3>לחזק את הקשר האנושי</h3><p class="muted">שום מכונה לא תחליף יד מושטת, חיבוק ומבט בעיניים</p></div>
+        <div class="grid g-3 flips">
+          <div class="flip f-turq" data-reveal tabindex="0" role="button" aria-label="מיומנות 1">
+            <div class="in">
+              <div class="front"><span class="big">1</span><span class="hand tap">לחיצה לגילוי</span></div>
+              <div class="back"><div class="num turq">1</div><h3>ללמוד את הכלים</h3><span class="ul"></span><p>מה הכלי עושה, איך עובדים איתו נכון, והאם הוא מתאים לצרכים שלי?</p></div>
+            </div>
+          </div>
+          <div class="flip f-lav" data-reveal tabindex="0" role="button" aria-label="מיומנות 2">
+            <div class="in">
+              <div class="front"><span class="big">2</span><span class="hand tap">לחיצה לגילוי</span></div>
+              <div class="back"><div class="num lav">2</div><h3>לחפש את האמת</h3><span class="ul"></span><p>לא מתעצלים לבדוק את התשובות והתוצרים שלו</p></div>
+            </div>
+          </div>
+          <div class="flip f-rose" data-reveal tabindex="0" role="button" aria-label="מיומנות 3">
+            <div class="in">
+              <div class="front"><span class="big">3</span><span class="hand tap">לחיצה לגילוי</span></div>
+              <div class="back"><div class="num rose">3</div><h3>לחזק את הקשר האנושי</h3><span class="ul"></span><p>שום מכונה לא תחליף יד מושטת, חיבוק ומבט בעיניים</p></div>
+            </div>
+          </div>
         </div>`,
       },
       {
