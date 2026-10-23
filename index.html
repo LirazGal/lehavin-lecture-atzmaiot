@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache">
 <title>לא צריך לפחד, צריך להבין | להבין AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -256,10 +257,10 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
 </header>
 <main id="app"></main>
 
-<script src="content.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-(function(){
+function startApp(){
   const app = document.getElementById('app');
   const where = document.getElementById('where');
   const main = SECTIONS.filter(s => !s.extra);
@@ -476,7 +477,9 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
     else if (e.key.toLowerCase() === 'f' || e.key === 'כ') toggleFs();
   });
   route();
-})();
+}
+/* content.js is always fetched fresh, so a push shows up without a hard refresh */
+(function(){ const s = document.createElement('script'); s.src = 'content.js?v=' + Date.now(); s.onload = startApp; document.body.appendChild(s); })();
 </script>
 </body>
 </html>
