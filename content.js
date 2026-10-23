@@ -180,6 +180,17 @@ const SECTIONS = [
         <div class="note center mt">השלב הראשון: מערכת שיודעת לבצע משימה אחת, טוב יותר מכל אדם</div>`,
       },
       {
+        title: 'ארבעה תחומים בוערים',
+        sub: 'מתפתחים בקצב מטורף, וביחד הם מה שמאפשר ל AI ללמוד',
+        html: `
+        <div class="grid g-4">
+          <div class="card top-rose"><h3>זיהוי תבניות</h3><p>מוצא חוקיות בתוך ים של מידע</p></div>
+          <div class="card top-lav"><h3>עיבוד שפה טבעית</h3><p>מבין וכותב שפה אנושית.</p><p class="muted" style="font-size:.85em">NLP: Natural Language Processing. לא ה NLP מעולם הפסיכולוגיה</p></div>
+          <div class="card top-turq"><h3>למידת מכונה</h3><p>לומד מדוגמאות, לא מהוראות. באנגלית: Machine Learning</p></div>
+          <div class="card top-mauve"><h3>עיבוד תמונה</h3><p>רואה, מזהה ומבין תמונות</p></div>
+        </div>`,
+      },
+      {
         title: 'שנות ה 2000: המחשב לומד לבד',
         sub: '2012: הניסוי של גוגל, מה זה חתול?',
         html: `
@@ -216,17 +227,6 @@ const SECTIONS = [
           <p><span>הכלב לא נכנס לבית כי <mark>הוא</mark> היה נעול.</span><span class="who">← הבית</span></p>
         </div>
         <p class="lg center mt strong" style="margin-bottom:0">וה T ב ChatGPT? זה Transformer.</p>`,
-      },
-      {
-        title: 'ארבעה תחומים בוערים',
-        sub: 'מתפתחים בקצב מטורף, וביחד הם מה שמאפשר ל AI ללמוד',
-        html: `
-        <div class="grid g-4">
-          <div class="card top-rose"><h3>זיהוי תבניות</h3><p>מוצא חוקיות בתוך ים של מידע</p></div>
-          <div class="card top-lav"><h3>עיבוד שפה טבעית</h3><p>מבין וכותב שפה אנושית.</p><p class="muted" style="font-size:.85em">NLP: Natural Language Processing. לא ה NLP מעולם הפסיכולוגיה</p></div>
-          <div class="card top-turq"><h3>למידת מכונה</h3><p>לומד מדוגמאות, לא מהוראות. באנגלית: Machine Learning</p></div>
-          <div class="card top-mauve"><h3>עיבוד תמונה</h3><p>רואה, מזהה ומבין תמונות</p></div>
-        </div>`,
       },
       {
         title: 'ומשם, הכל קרה מהר',
