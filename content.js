@@ -15,7 +15,7 @@ const LECTURE = {
   links: {
     netflix: 'https://www.netflix.com/watch/82772145',
     quiz: 'https://lirazgal.github.io/lehavin-quiz/',
-    synthid: 'https://deepmind.google/models/synthid/',
+    synthid: 'https://synthid.com/',
     youtube: 'https://www.youtube.com/channel/UCv81fx_fjdWJpern4C2jyIA',
   },
   cta: [
@@ -388,7 +388,7 @@ const SECTIONS = [
         sub: 'SynthID של Google DeepMind: סימן מים בלתי נראה בתוכן שנוצר ב AI',
         html: `
         <div class="grid g-1-1">
-          <div class="img" data-img="synthid.png">צילום מסך: בדיקת תמונה ב Gemini</div>
+          <div class="img" data-img="synthid.jpg" data-fit="contain" style="background-color:#fff">בדיקה ב SynthID Detector: נמצא סימן מים של Google AI</div>
           <div class="stack">
             <ol class="steps small">
               <li><strong>העלאת התמונה, הסרטון או קטע האודיו ל Gemini</strong></li>
@@ -396,7 +396,7 @@ const SECTIONS = [
               <li><strong>Gemini בודק אם יש סימן מים ומחזיר תשובה</strong></li>
             </ol>
             <div class="note">חשוב לדעת: "לא נמצא סימן" לא אומר שהתמונה אמיתית</div>
-            <a class="btn" href="{{synthid}}" target="_blank" rel="noopener">עוד על SynthID</a>
+            <a class="btn" href="{{synthid}}" target="_blank" rel="noopener">לבדיקה ב SynthID</a>
           </div>
         </div>`,
       },
