@@ -354,10 +354,10 @@ const SECTIONS = [
         html: `
         <div class="grid g-2-1">
           <div class="stack">
-            <div class="agent"><b>לינדה</b><span>משאבי אנוש: בונה את הסוכנים החדשים</span></div>
-            <div class="agent"><b>אמנון</b><span>איש הכספים: הצעות מחיר, הכנסות והוצאות</span></div>
-            <div class="agent"><b>ג'ים</b><span>מנהל המייל: שומר על תיבת דואר נקייה</span></div>
-            <div class="agent"><b>טום</b><span>מעצב מוצרים דיגיטליים</span></div>
+            <div class="agent"><img class="agent-pic" src="assets/agent-linda.jpg" alt="לינדה"><b>לינדה</b><span>משאבי אנוש: בונה את הסוכנים החדשים</span></div>
+            <div class="agent"><img class="agent-pic" src="assets/agent-amnon.jpg" alt="אמנון"><b>אמנון</b><span>איש הכספים: הצעות מחיר, הכנסות והוצאות</span></div>
+            <div class="agent"><img class="agent-pic" src="assets/agent-jim.jpg" alt="ג'ים"><b>ג'ים</b><span>מנהל המייל: שומר על תיבת דואר נקייה</span></div>
+            <div class="agent"><img class="agent-pic" src="assets/agent-tom.jpg" alt="טום"><b>טום</b><span>מעצב מוצרים דיגיטליים</span></div>
           </div>
           <div class="card soft-lav center">
             <h3>Obsidian</h3>
