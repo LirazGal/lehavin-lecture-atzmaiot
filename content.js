@@ -185,7 +185,7 @@ const SECTIONS = [
         html: `
         <div class="grid g-4">
           <div class="card top-rose"><h3>זיהוי תבניות</h3><p>מוצא חוקיות בתוך ים של מידע</p></div>
-          <div class="card top-lav"><h3>עיבוד שפה טבעית</h3><p>מבין וכותב שפה אנושית.</p><p class="muted" style="font-size:.85em">NLP: Natural Language Processing. לא ה NLP מעולם הפסיכולוגיה</p></div>
+          <div class="card top-lav"><h3>עיבוד שפה טבעית</h3><p>מבין וכותב שפה אנושית.</p><p class="muted" style="font-size:.85em">NLP: Natural Language Processing</p></div>
           <div class="card top-turq"><h3>למידת מכונה</h3><p>לומד מדוגמאות, לא מהוראות. באנגלית: Machine Learning</p></div>
           <div class="card top-mauve"><h3>עיבוד תמונה</h3><p>רואה, מזהה ומבין תמונות</p></div>
         </div>`,
@@ -327,13 +327,15 @@ const SECTIONS = [
         </ol>`,
       },
       {
-        title: 'מי עושה מה? הכלים שכדאי להכיר',
+        title: 'קודם הצורך, אחר כך הכלי',
         html: `
-        <div class="grid g-2">
-          <div class="card side-turq"><h3>ChatGPT</h3><p>השיחה הכללית: כתיבה, רעיונות, תמונות</p></div>
-          <div class="card side-rose"><h3>Claude</h3><p>כתיבה איכותית, עבודה עם קבצים ובניית סוכנים</p></div>
-          <div class="card side-lav"><h3>Gemini</h3><p>משולב בעולם של גוגל: מייל, דרייב, מצגות</p></div>
-          <div class="card side-mauve"><h3>NotebookLM</h3><p>לומד רק מהמקורות שמעלים אליו: סיכום, שאלות ופודקאסט</p></div>
+        <div class="grid g-3">
+          <div class="card side-turq"><h3>רוצים מצגת?</h3><p class="strong" style="font-size:1.15em;margin:.2em 0"><bdi>Canva AI</bdi></p><p class="muted">וגם כל מודלי השפה יודעים היום לבנות מצגת</p></div>
+          <div class="card side-rose"><h3>רוצים תמונה?</h3><p class="strong" style="font-size:1.15em;margin:.2em 0"><bdi>Midjourney · Ideogram</bdi></p><p class="muted">בשביל הוואו. גם מודלי השפה כבר לא רעים בכלל</p></div>
+          <div class="card side-lav"><h3>רוצים סרטון?</h3><p class="strong" style="font-size:1.15em;margin:.2em 0"><bdi>Higgsfield</bdi></p><p class="muted">אני מחברת אליו את ה Claude שלי</p></div>
+          <div class="card side-mauve"><h3>רוצים שיר?</h3><p class="strong" style="font-size:1.15em;margin:.2em 0"><bdi>Suno · Udio</bdi></p><p class="muted">כותבים על מה, בוחרים סגנון, והוא שר</p></div>
+          <div class="card side-turq"><h3>רוצים אווטאר שמדבר?</h3><p class="strong" style="font-size:1.15em;margin:.2em 0"><bdi>D-ID · Synthesia</bdi></p><p class="muted">כותבים טקסט, והדמות מקריאה אותו</p></div>
+          <div class="note" style="display:flex;flex-direction:column;justify-content:center;gap:.35em"><span style="font-size:1.25em">מה הצורך?</span><span>בוחרים כלי אחד ידידותי</span><span>טוטוריאל קצר ביוטיוב</span><span>ומלכלכים ידיים <bdi dir="ltr">:)</bdi></span></div>
         </div>`,
       },
       {
