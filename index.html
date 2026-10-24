@@ -303,6 +303,8 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
 .closing-qr{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:22px}
 .closing-qr [data-qr]{background:#fff;padding:10px;border-radius:12px;box-shadow:var(--shadow)}
 .closing-qr p{max-width:220px}
+.summary .closing-qr [data-qr],.summary .closing-qr p{display:none}
+.closing-me{height:170px;width:auto;border-radius:12px;box-shadow:var(--shadow);border:4px solid #fff}
 .homecta{margin-top:18px}
 .homecta .cta .card{padding:14px 22px;display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:16px}
 .homecta .cta .card h3{margin:0}
@@ -349,6 +351,16 @@ td.hl{background:var(--turq-soft);color:var(--ink);font-weight:500}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 function startApp(){
+  /* גרסת הסיכום לקהל (summary.html): בלי חלקים ומסכים שמסומנים summary: false */
+  if (new URLSearchParams(location.search).has('summary')) {
+    document.documentElement.classList.add('summary');
+    for (let i = SECTIONS.length - 1; i >= 0; i--) {
+      const sec = SECTIONS[i];
+      if (sec.summary === false) { SECTIONS.splice(i, 1); continue; }
+      sec.screens = sec.screens.filter(sc => sc.summary !== false);
+      if (sec.summaryDesc) sec.desc = sec.summaryDesc;
+    }
+  }
   const app = document.getElementById('app');
   const where = document.getElementById('where');
   const main = SECTIONS.filter(s => !s.extra);

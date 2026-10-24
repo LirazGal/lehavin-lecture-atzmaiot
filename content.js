@@ -16,6 +16,7 @@ const LECTURE = {
     netflix: 'https://www.netflix.com/watch/82772145',
     quiz: 'https://lirazgal.github.io/lehavin-quiz/',
     synthid: 'https://synthid.com/',
+    summary: 'https://lirazgal.github.io/lehavin-lecture-atzmaiot/summary.html',
     youtube: 'https://www.youtube.com/channel/UCv81fx_fjdWJpern4C2jyIA',
   },
   cta: [
@@ -36,9 +37,11 @@ const SECTIONS = [
   /* ---------------- 1. פתיחה ---------------- */
   {
     id: 'open', color: 'rose', title: 'פתיחה', desc: 'נסיעה בלי נהג, מעלית בלי מפעיל, וסוס אחד עקשן',
+    summaryDesc: 'מעלית בלי מפעיל, וסוס אחד עקשן',
     screens: [
       {
         title: 'נסיעה בלי נהג: כן או לא?',
+        summary: false,
         sub: 'לא מדע בדיוני. מונית בלי נהג, היום, ברחובות אמיתיים',
         html: `
         <div class="grid g-2-1">
@@ -96,7 +99,7 @@ const SECTIONS = [
 
   /* ---------------- 2. נעים להכיר ---------------- */
   {
-    id: 'me', color: 'rose', title: 'נעים להכיר', desc: 'מי אני, ולמה אני חופרת על AI',
+    id: 'me', summary: false, color: 'rose', title: 'נעים להכיר', desc: 'מי אני, ולמה אני חופרת על AI',
     screens: [
       {
         title: 'נעים להכיר',
@@ -126,7 +129,7 @@ const SECTIONS = [
 
   /* ---------------- 3. חידון ---------------- */
   {
-    id: 'quiz', color: 'rose', title: 'משחק', desc: 'עד כמה אנחנו ו AI חברים?',
+    id: 'quiz', summary: false, color: 'rose', title: 'משחק', desc: 'עד כמה אנחנו ו AI חברים?',
     screens: [
       {
         title: 'נגלה יחד: עד כמה אנחנו ו AI חברים',
@@ -442,14 +445,14 @@ const SECTIONS = [
           <p class="huge accent">מספיק להבין את זה.</p>
         </div>
         <div data-cta class="mt"></div>
-        <div class="closing-qr"><div data-qr></div><p class="muted">הדף הזה, עם כל החומרים והמשחקים</p></div>`,
+        <div class="closing-qr"><img class="closing-me" src="assets/me-end.jpg" alt="לירז גל"><div data-qr data-qr-url="{{summary}}"></div><p class="muted">הדברים החשובים באמת מתוך ההרצאה נמצאים גם כאן</p></div>`,
       },
     ],
   },
 
 ];
 
-/* המשפט של משחק המשפט: בדיוק 20 מילים */
+/* המשפט של משחק המשפט: 14 מילים */
 /* משחק ההתאמה: מושג והגדרה */
 const TERMS = [
   ['LLM', 'מודל שפה גדול: המוח שמאחורי הצ\'אט, שלמד מכמויות עצומות של טקסט'],
@@ -462,4 +465,4 @@ const TERMS = [
   ['אוטומציה', 'תהליך שרץ לבד לפי כללים קבועים: אם קרה X, קורה Y'],
 ];
 
-const SENTENCE = 'בינה מלאכותית לומדת מתוך מיליוני דוגמאות, מזהה תבניות בשפה ובתמונות, ולכן היא יודעת לנחש מה הכי סביר שיבוא אחר כך';
+const SENTENCE = 'בינה מלאכותית לומדת דפוסים ממיליוני דוגמאות, ומשתמשת בהם כדי לחזות, לזהות וליצור דברים חדשים';
