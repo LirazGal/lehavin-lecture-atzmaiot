@@ -392,7 +392,7 @@ function startApp(){
     const sc = sec.screens[idx];
     document.body.className = 'c-' + sec.color;
     const num = main.indexOf(sec);
-    where.textContent = (num >= 0 ? (num + 1) + '. ' : '') + sec.title;
+    where.textContent = (num >= 0 ? (num + 1) + '. ' : '') + sec.title + (sec.skill && !(sc.hideSkill) ? ': ' + sec.skill : '');
     const head = sc.title ? `<div class="head"><h1>${sc.title}</h1>${sc.sub ? `<p class="sub">${sc.sub}</p>` : ''}</div>` : '';
     app.innerHTML = `<section class="view"><div class="fit">${head}<div class="body">${fill(sc.html)}</div></div></section>
       <nav class="nav" aria-label="ניווט בין מסכים">

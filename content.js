@@ -264,10 +264,11 @@ const SECTIONS = [
 
   /* ---------------- 5. מיומנות 1 ---------------- */
   {
-    id: 'tools', color: 'turq', title: 'מיומנות 1', desc: '',
+    id: 'tools', color: 'turq', title: 'מיומנות 1', skill: 'ללמוד את הכלים', desc: '',
     screens: [
       {
         title: '3 מיומנויות חשובות בתקופה הזאת',
+        hideSkill: true,
         html: `
         <div class="grid g-3 flips">
           <div class="flip f-turq" data-reveal tabindex="0" role="button" aria-label="מיומנות 1">
@@ -371,7 +372,7 @@ const SECTIONS = [
 
   /* ---------------- 6. מיומנות 2 ---------------- */
   {
-    id: 'truth', color: 'lav', title: 'מיומנות 2', desc: '',
+    id: 'truth', color: 'lav', title: 'מיומנות 2', skill: 'לחפש את האמת', desc: '',
     screens: [
       {
         title: 'הזיה: תשובה בטוחה בעצמה ושגויה',
@@ -405,7 +406,7 @@ const SECTIONS = [
 
   /* ---------------- 7. מיומנות 3 ---------------- */
   {
-    id: 'human', color: 'rose', title: 'מיומנות 3', desc: '',
+    id: 'human', color: 'rose', title: 'מיומנות 3', skill: 'לחזק את הקשר האנושי', desc: '',
     screens: [
       {
         title: 'יש דברים ש AI לא יודע לעשות',
