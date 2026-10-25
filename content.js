@@ -343,6 +343,36 @@ const SECTIONS = [
         </div>`,
       },
       {
+        title: 'מודל קל או מודל חושב?',
+        sub: 'לכל כלי יש כמה מודלים, ובכל שיחה אפשר לבחור כמה הוא "יתאמץ בחשיבה". וכל זה נספר בטוקנים',
+        html: `
+        <div class="grid g-1-1">
+          <div class="card top-turq">
+            <h3>בוחרים מודל</h3>
+            <ul class="kv">
+              <li><b><bdi>Claude</bdi></b><span><bdi dir="ltr">Haiku · Sonnet · Opus</bdi></span></li>
+              <li><b><bdi>ChatGPT</bdi></b><span><bdi dir="ltr">Instant · Thinking · Pro</bdi></span></li>
+              <li><b><bdi>Gemini</bdi></b><span><bdi dir="ltr">Flash · Pro</bdi></span></li>
+            </ul>
+            <p class="muted" style="margin:.3em 0">משמאל לימין: מהיר וחסכוני, ועד חזק ויסודי</p>
+            <h3 style="margin-top:.5em">ובוחרים כמה לחשוב</h3>
+            <p style="margin:.2em 0">נמוך · בינוני · גבוה. יותר חשיבה = תשובה מעמיקה יותר, וגם יותר טוקנים</p>
+          </div>
+          <div class="card top-lav">
+            <h3>כמה זה בטוקנים?</h3>
+            <ul class="kv">
+              <li><b><bdi dir="ltr">"3-bedroom apartment"</bdi></b><span><bdi dir="ltr">~5</bdi></span></li>
+              <li><b><bdi dir="ltr">"$1,847,500"</bdi></b><span><bdi dir="ltr">~7</bdi></span></li>
+              <li><b>עמוד אחד של חוזה</b><span><bdi dir="ltr">~500</bdi></span></li>
+              <li><b>חוזה של 80 עמודים</b><span><bdi dir="ltr">~40,000</bdi></span></li>
+              <li><b>תמונה אחת</b><span>מאות עד <bdi dir="ltr">~1,500</bdi></span></li>
+            </ul>
+            <p class="muted" style="margin:.3em 0">לא רק טקסט: גם תמונה, PDF והקלטה קולית מתורגמים לטוקנים. ומספרים, טבלאות ועברית "עולים" יותר</p>
+          </div>
+        </div>
+        <div class="note mt"><span class="accent">איך חוסכים?</span> משימה פשוטה, מודל קל · חשיבה עמוקה רק כשבאמת צריך · נושא חדש, שיחה חדשה · מדביקים רק את מה שרלוונטי</div>`,
+      },
+      {
         title: 'AI או אוטומציה?',
         sub: 'כלל אצבע: אם אפשר לכתוב את זה כ"אם... אז...", זו אוטומציה',
         html: `
@@ -455,7 +485,7 @@ const SECTIONS = [
 /* המשפט של משחק המשפט: 14 מילים */
 /* משחק ההתאמה: מושג והגדרה */
 const TERMS = [
-  ['LLM', 'מודל שפה גדול: המוח שמאחורי הצ\'אט, שלמד מכמויות עצומות של טקסט'],
+  ['טוקנים', 'המטבע של AI: כל מה שנכנס ויוצא, טקסט, תמונה, קובץ או קול, מתפרק לחתיכות קטנות שנספרות. כך נמדדים העבודה והמחיר'],
   ['פרומפט', 'ההוראה או השאלה שכותבים ל AI'],
   ['הזיה', 'תשובה שנשמעת בטוחה מאוד, אבל פשוט לא נכונה'],
   ['סוכן AI', 'AI שלא רק עונה, אלא יוצא לבצע משימות בעצמו'],
