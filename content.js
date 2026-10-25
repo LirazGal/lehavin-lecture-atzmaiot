@@ -401,8 +401,7 @@ const SECTIONS = [
         </div>`,
       },
       {
-        title: 'וגם לצוות מגיע יום כיף',
-        sub: 'אתנחתא קומית: אז יצרתי להם תמונות קבוצתיות',
+        title: 'ולפעמים אני מוציאה אותם ליום כיף 😂',
         html: `
         <div class="team-fun">
           <figure><img src="assets/team-trip.png" alt="הצוות הדיגיטלי בטיול בבריכת המשושים, כל סוכן עם תג שם"><figcaption>טיול לבריכת המשושים</figcaption></figure>
