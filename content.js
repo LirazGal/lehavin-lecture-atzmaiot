@@ -20,6 +20,7 @@ const LECTURE = {
     signup: 'https://lirazgal.github.io/lehavin-lecture-atzmaiot/signup.html',
     youtube: 'https://www.youtube.com/channel/UCv81fx_fjdWJpern4C2jyIA',
   },
+  waNext: 'היי לירז, הייתי בהרצאה בעצמאיות ואשמח לשמוע עוד',
   cta: [
     {
       title: 'ללמוד לעומק',
@@ -318,7 +319,7 @@ const SECTIONS = [
 
   /* ---------------- 5. מיומנויות: רק במצגת החיה ---------------- */
   {
-    id: 'skills', summary: false, color: 'turq', title: 'מיומנויות', desc: '3 מיומנויות לעידן ה AI, והמשך בזמנכן',
+    id: 'skills', summary: false, color: 'turq', title: 'מיומנויות', desc: '3 מיומנויות לעידן ה AI',
     screens: [
       {
         title: '3 מיומנויות חשובות בתקופה הזאת',
@@ -541,7 +542,36 @@ const SECTIONS = [
     id: 'end', color: 'rose', title: 'סיום והצעד הבא', desc: 'איך ממשיכים מכאן',
     screens: [
       {
+        /* המצגת החיה: הפרטים שלי והברקוד למצגת המלאה */
         title: '',
+        summary: false,
+        html: `
+        <div class="center">
+          <p class="xl muted" style="margin:0">לא צריך לאהוב את זה. לא צריך לפחד מזה.</p>
+          <p class="huge accent" style="margin:0">מספיק להבין את זה.</p>
+        </div>
+        <div class="finale">
+          <img class="finale-me" src="assets/me-end.jpg" alt="לירז גל">
+          <div class="finale-who">
+            <h2>לירז גל</h2>
+            <p class="role">מדריכת טכנולוגיות ו AI</p>
+            <p class="tag">להבין AI | טכנולוגיה בשירות האדם</p>
+            <div class="reach">
+              <a href="tel:+972545387466"><bdi dir="ltr">054-5387466</bdi></a>
+              <a href="https://lehavinai.co.il" target="_blank" rel="noopener"><bdi dir="ltr">LehavinAI.co.il</bdi></a>
+            </div>
+          </div>
+          <div class="finale-qr">
+            <span class="hand">המצגת המלאה אצלכן</span>
+            <div data-qr data-qr-url="{{signup}}" data-qr-size="210"></div>
+            <p>סורקות ומקבלות את כל המיומנויות לעומק</p>
+          </div>
+        </div>`,
+      },
+      {
+        /* גרסת הסיכום: הקריאה לפעולה כמו קודם */
+        title: '',
+        summaryOnly: true,
         html: `
         <div class="center">
           <p class="xl muted">לא צריך לאהוב את זה. לא צריך לפחד מזה.</p>
