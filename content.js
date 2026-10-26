@@ -17,6 +17,7 @@ const LECTURE = {
     quiz: 'https://lirazgal.github.io/lehavin-quiz/',
     synthid: 'https://synthid.com/',
     summary: 'https://lirazgal.github.io/lehavin-lecture-atzmaiot/summary.html',
+    signup: 'https://lirazgal.github.io/lehavin-lecture-atzmaiot/signup.html',
     youtube: 'https://www.youtube.com/channel/UCv81fx_fjdWJpern4C2jyIA',
   },
   cta: [
@@ -32,6 +33,29 @@ const LECTURE = {
     },
   ],
 };
+
+/* כרטיסי 3 המיומנויות: משותף למצגת החיה ולסיכום */
+const SKILLS_FLIPS = `
+        <div class="grid g-3 flips">
+          <div class="flip f-turq" data-reveal tabindex="0" role="button" aria-label="מיומנות 1">
+            <div class="in">
+              <div class="front"><span class="big">1</span><span class="hand tap">לחיצה לגילוי</span></div>
+              <div class="back"><div class="num turq">1</div><h3>ללמוד את הכלים</h3><span class="ul"></span><p>מה הכלי עושה, איך עובדים איתו נכון, והאם הוא מתאים לצרכים שלי?</p></div>
+            </div>
+          </div>
+          <div class="flip f-lav" data-reveal tabindex="0" role="button" aria-label="מיומנות 2">
+            <div class="in">
+              <div class="front"><span class="big">2</span><span class="hand tap">לחיצה לגילוי</span></div>
+              <div class="back"><div class="num lav">2</div><h3>לחפש את האמת</h3><span class="ul"></span><p>לא מתעצלים לבדוק את התשובות והתוצרים שלו</p></div>
+            </div>
+          </div>
+          <div class="flip f-rose" data-reveal tabindex="0" role="button" aria-label="מיומנות 3">
+            <div class="in">
+              <div class="front"><span class="big">3</span><span class="hand tap">לחיצה לגילוי</span></div>
+              <div class="back"><div class="num rose">3</div><h3>לחזק את הקשר האנושי</h3><span class="ul"></span><p>שום מכונה לא תחליף יד מושטת, חיבוק ומבט בעיניים</p></div>
+            </div>
+          </div>
+        </div>`;
 
 const SECTIONS = [
   /* ---------------- 1. פתיחה ---------------- */
@@ -90,8 +114,8 @@ const SECTIONS = [
         title: '',
         html: `
         <div class="center">
-          <p class="xl muted">הפחד לא נעלם כי הכריחו אותנו.</p>
-          <p class="huge accent">הוא נעלם כי הכרנו.</p>
+          <p class="xl muted">הפחד מהקידמה ומהטכנולוגיה</p>
+          <p class="huge accent">נעלם כי <span class="hand-ul">הכרנו<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13 C 40 6, 80 16, 120 9 S 180 7, 196 11"/></svg></span>.</p>
         </div>`,
       },
     ],
@@ -99,10 +123,12 @@ const SECTIONS = [
 
   /* ---------------- 2. נעים להכיר ---------------- */
   {
-    id: 'me', summary: false, color: 'rose', title: 'נעים להכיר', desc: 'מי אני, ולמה אני חופרת על AI',
+    id: 'me', color: 'rose', title: 'נעים להכיר', desc: 'מי אני, ולמה אני חופרת על AI',
+    summaryDesc: 'מי אני, ואיך ממשיכים להיות בקשר',
     screens: [
       {
         title: 'נעים להכיר',
+        summary: false,
         html: `
         <div class="grid g-1-1">
           <div class="slider" data-slider>
@@ -111,6 +137,31 @@ const SECTIONS = [
             <figure><img src="assets/costumes.png" alt="שתי תחפושות רובוט של לירז: אחת מ 1984 ואחת של ChatGPT מ 2023"><figcaption>מאז ומתמיד סקרנית לטכנולוגיה</figcaption></figure>
           </div>
           <div>
+            <h3 class="me-name">לירז גל</h3>
+            <p class="me-role">מדריכת טכנולוגיות ו AI</p>
+            <ul class="dots lg">
+              <li>מעל 20 שנה מלמדת טכנולוגיה, בגובה העיניים</li>
+              <li>הקמתי את להבין AI: הרצאות, סדנאות וליווי לעסקים</li>
+              <li>עובדת יום יום עם צוות סוכנים דיגיטליים שהקמתי</li>
+              <li>ויש לי ערוץ יוטיוב של שירים שיצרתי עם AI</li>
+            </ul>
+            <div class="me-links">
+              <div class="yt"><div data-qr data-qr-url="{{youtube}}" data-qr-size="104"></div><a href="{{youtube}}" target="_blank" rel="noopener">לערוץ היוטיוב</a></div>
+              <div><p class="lg accent strong">טכנולוגיה בשירות האדם</p><a class="site" href="https://lehavinai.co.il" target="_blank" rel="noopener"><bdi dir="ltr">LehavinAI.co.il</bdi></a></div>
+            </div>
+          </div>
+        </div>`,
+      },
+      {
+        /* גרסת הסיכום בלבד: תמונה אחת */
+        title: 'נעים להכיר',
+        summaryOnly: true,
+        html: `
+        <div class="grid g-1-1">
+          <div class="slider"><figure class="on"><img src="assets/me-facilitator.jpg" alt="לירז מנחה מול קבוצה"><figcaption>מתרגמת את הבאזז למילים פשוטות</figcaption></figure></div>
+          <div>
+            <h3 class="me-name">לירז גל</h3>
+            <p class="me-role">מדריכת טכנולוגיות ו AI</p>
             <ul class="dots lg">
               <li>מעל 20 שנה מלמדת טכנולוגיה, בגובה העיניים</li>
               <li>הקמתי את להבין AI: הרצאות, סדנאות וליווי לעסקים</li>
@@ -265,34 +316,48 @@ const SECTIONS = [
     ],
   },
 
-  /* ---------------- 5. מיומנות 1 ---------------- */
+  /* ---------------- 5. מיומנויות: רק במצגת החיה ---------------- */
   {
-    id: 'tools', color: 'turq', title: 'מיומנות 1', skill: 'ללמוד את הכלים', desc: '',
+    id: 'skills', summary: false, color: 'turq', title: 'מיומנויות', desc: '3 מיומנויות לעידן ה AI, והמשך בזמנכן',
+    screens: [
+      {
+        title: '3 מיומנויות חשובות בתקופה הזאת',
+        html: SKILLS_FLIPS,
+      },
+      {
+        title: 'רוצות את כל המיומנויות לעומק?',
+        sub: 'הכנתי לכן את כל החומר, לקריאה בזמן שנוח לכן',
+        html: `
+        <div class="grid g-3-2">
+          <div class="card top-turq">
+            <h3>מה מחכה לכן במצגת המלאה</h3>
+            <ul class="dots lg">
+              <li>איך כותבים פרומפט שמביא תוצאות: לחשוב חכ"ם</li>
+              <li>מצ'אטבוט לסוכן AI, ואיך בוחרים כלי לפי הצורך</li>
+              <li>מודל קל או מודל חושב, ואיך חוסכים בטוקנים</li>
+              <li>איך מזהים הזיה ותוכן שנוצר ב AI</li>
+              <li>ולמה הקשר האנושי שווה היום יותר מתמיד</li>
+            </ul>
+          </div>
+          <div class="card center signup-cta">
+            <div data-qr data-qr-url="{{signup}}" data-qr-size="200"></div>
+            <p class="lg strong" style="margin:.6em 0 .2em">סורקות, משאירות שם ומייל</p>
+            <p class="accent strong" style="margin:0">והמצגת המלאה נפתחת מיד</p>
+            <p class="muted" style="margin:.6em 0 0">ומדי פעם גם חדשות מעולם ה AI. בלי חפירות, מבטיחה 😉</p>
+          </div>
+        </div>`,
+      },
+    ],
+  },
+
+  /* ---------------- 5. מיומנות 1 (בסיכום בלבד) ---------------- */
+  {
+    id: 'tools', live: false, color: 'turq', title: 'מיומנות 1', skill: 'ללמוד את הכלים', desc: '',
     screens: [
       {
         title: '3 מיומנויות חשובות בתקופה הזאת',
         hideSkill: true,
-        html: `
-        <div class="grid g-3 flips">
-          <div class="flip f-turq" data-reveal tabindex="0" role="button" aria-label="מיומנות 1">
-            <div class="in">
-              <div class="front"><span class="big">1</span><span class="hand tap">לחיצה לגילוי</span></div>
-              <div class="back"><div class="num turq">1</div><h3>ללמוד את הכלים</h3><span class="ul"></span><p>מה הכלי עושה, איך עובדים איתו נכון, והאם הוא מתאים לצרכים שלי?</p></div>
-            </div>
-          </div>
-          <div class="flip f-lav" data-reveal tabindex="0" role="button" aria-label="מיומנות 2">
-            <div class="in">
-              <div class="front"><span class="big">2</span><span class="hand tap">לחיצה לגילוי</span></div>
-              <div class="back"><div class="num lav">2</div><h3>לחפש את האמת</h3><span class="ul"></span><p>לא מתעצלים לבדוק את התשובות והתוצרים שלו</p></div>
-            </div>
-          </div>
-          <div class="flip f-rose" data-reveal tabindex="0" role="button" aria-label="מיומנות 3">
-            <div class="in">
-              <div class="front"><span class="big">3</span><span class="hand tap">לחיצה לגילוי</span></div>
-              <div class="back"><div class="num rose">3</div><h3>לחזק את הקשר האנושי</h3><span class="ul"></span><p>שום מכונה לא תחליף יד מושטת, חיבוק ומבט בעיניים</p></div>
-            </div>
-          </div>
-        </div>`,
+        html: SKILLS_FLIPS,
       },
       {
         title: 'איך כותבים פרומפט איכותי? לחשוב חכ"ם',
@@ -413,7 +478,7 @@ const SECTIONS = [
 
   /* ---------------- 6. מיומנות 2 ---------------- */
   {
-    id: 'truth', color: 'lav', title: 'מיומנות 2', skill: 'לחפש את האמת', desc: '',
+    id: 'truth', live: false, color: 'lav', title: 'מיומנות 2', skill: 'לחפש את האמת', desc: '',
     screens: [
       {
         title: 'הזיה: תשובה בטוחה בעצמה ושגויה',
@@ -447,7 +512,7 @@ const SECTIONS = [
 
   /* ---------------- 7. מיומנות 3 ---------------- */
   {
-    id: 'human', color: 'rose', title: 'מיומנות 3', skill: 'לחזק את הקשר האנושי', desc: '',
+    id: 'human', live: false, color: 'rose', title: 'מיומנות 3', skill: 'לחזק את הקשר האנושי', desc: '',
     screens: [
       {
         title: 'יש דברים ש AI לא יודע לעשות',
@@ -483,7 +548,7 @@ const SECTIONS = [
           <p class="huge accent">מספיק להבין את זה.</p>
         </div>
         <div data-cta class="mt"></div>
-        <div class="closing-qr"><img class="closing-me" src="assets/me-end.jpg" alt="לירז גל"><div data-qr data-qr-url="{{summary}}"></div><p class="muted">הדברים החשובים באמת מתוך ההרצאה נמצאים גם כאן</p></div>`,
+        <div class="closing-qr"><img class="closing-me" src="assets/me-end.jpg" alt="לירז גל"><div data-qr data-qr-url="{{signup}}"></div><p class="muted">המצגת המלאה, עם כל המיומנויות לעומק, מחכה לכן כאן</p></div>`,
       },
     ],
   },
