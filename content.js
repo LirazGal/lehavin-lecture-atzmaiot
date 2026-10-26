@@ -18,6 +18,8 @@ const LECTURE = {
     synthid: 'https://synthid.com/',
     summary: 'https://lirazgal.github.io/lehavin-lecture-atzmaiot/summary.html',
     signup: 'https://lirazgal.github.io/lehavin-lecture-atzmaiot/signup.html',
+    waLecture: 'https://wa.me/972545387466?text=' + encodeURIComponent('היי לירז, הייתי בהרצאה בעצמאיות ויש לי רעיון למקום שישמח להרצאה כזו'),
+    waPersonal: 'https://wa.me/972545387466?text=' + encodeURIComponent('היי לירז, הייתי בהרצאה בעצמאיות ואשמח לשמוע על מפגש עבודה אישי'),
     youtube: 'https://www.youtube.com/channel/UCv81fx_fjdWJpern4C2jyIA',
   },
   waNext: 'היי לירז, הייתי בהרצאה בעצמאיות ואשמח לשמוע עוד',
@@ -61,8 +63,8 @@ const SKILLS_FLIPS = `
 const SECTIONS = [
   /* ---------------- 1. פתיחה ---------------- */
   {
-    id: 'open', color: 'rose', title: 'פתיחה', desc: 'נסיעה בלי נהג, מעלית בלי מפעיל, וסוס אחד עקשן',
-    summaryDesc: 'מעלית בלי מפעיל, וסוס אחד עקשן',
+    id: 'open', color: 'rose', title: 'פתיחה', desc: 'נסיעה בלי נהג, מעלית בלי מפעיל וסוס',
+    summaryDesc: 'מעלית בלי מפעיל וסוס',
     screens: [
       {
         title: 'נסיעה בלי נהג: כן או לא?',
@@ -574,11 +576,33 @@ const SECTIONS = [
         summaryOnly: true,
         html: `
         <div class="center">
-          <p class="xl muted">לא צריך לאהוב את זה. לא צריך לפחד מזה.</p>
-          <p class="huge accent">מספיק להבין את זה.</p>
+          <p class="xl muted" style="margin:0">לא צריך לאהוב את זה. לא צריך לפחד מזה.</p>
+          <p class="huge accent" style="margin:0">מספיק להבין את זה.</p>
         </div>
-        <div data-cta class="mt"></div>
-        <div class="closing-qr"><img class="closing-me" src="assets/me-end.jpg" alt="לירז גל"><div data-qr data-qr-url="{{signup}}"></div><p class="muted">המצגת המלאה, עם כל המיומנויות לעומק, מחכה לכן כאן</p></div>`,
+        <div class="choose" data-choose>
+          <div class="opt opt-a" data-pick="a" tabindex="0">
+            <span class="opt-n">אפשרות 1</span>
+            <h3>הרצאה כזו במקום נוסף</h3>
+            <p>מכירות קבוצה, קהילה או ארגון שישמחו לשמוע? אשמח לחיבור</p>
+            <a class="btn" href="{{waLecture}}" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a>
+          </div>
+          <div class="face" aria-hidden="true">
+            <div class="say" data-say>אז מה בוחרות? 👀</div>
+            <div class="face-ring"><div class="clip">
+              <img data-face="0" class="on" src="assets/me-trainer.jpg" alt="" style="object-position:50% 28%">
+              <img data-face="a" src="assets/me-facilitator.jpg" alt="" style="object-position:78% 20%">
+              <img data-face="b" src="assets/me-end.jpg" alt="" style="object-position:50% 22%">
+            </div></div>
+            <p class="face-name">לירז גל</p>
+          </div>
+          <div class="opt opt-b" data-pick="b" tabindex="0">
+            <span class="opt-n">אפשרות 2</span>
+            <h3>מפגש עבודה אישי, אחד על אחד</h3>
+            <p>מתחילים ממה שהכי בוער בעסק שלך, ויוצאות עם כלים שעובדים</p>
+            <a class="btn" href="{{waPersonal}}" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a>
+          </div>
+        </div>
+        <p class="contact"><bdi>לירז גל, להבין AI</bdi><span class="sep">|</span><a href="tel:+972545387466"><bdi dir="ltr">054-5387466</bdi></a><span class="sep">|</span><a href="https://lehavinai.co.il" target="_blank" rel="noopener"><bdi dir="ltr">lehavinai.co.il</bdi></a></p>`,
       },
     ],
   },
